@@ -324,7 +324,7 @@ textarea {
 
 .dropdown {
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .dropdown select:hover {
@@ -351,6 +351,18 @@ textarea {
 @media (max-width: 400px) {
     .socials {
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 440px) {
+    .dropdown{
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .dropdown select{
+        width: 100%;
     }
 }
 
