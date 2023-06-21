@@ -4,7 +4,7 @@ body {
 }
 
 h2 {
-    margin-bottom: 25px !important;
+    margin-bottom: 50px !important;
 }
 
 @keyframes popIn {
@@ -128,7 +128,11 @@ textarea {
 }
 
 .carousel-item img, .carousel{
-    border-radius: 2.5%;
+    border-radius: 25px 25px 0 0;
+}
+
+.carousel-inner{
+    border-radius: 25px 25px 0 0;
 }
 
 .socials {
@@ -208,14 +212,22 @@ textarea {
 .project-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: 100px 50px;
+}
+
+.project-content p {
+    margin-bottom: 100px;
 }
 
 .project {
     background-color: #fdfdfd;
-    border-radius: 2.5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.project-content{
+    padding: 25px 25px 0 25px;
 }
 
 .project a{
@@ -257,7 +269,7 @@ textarea {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-container button{
+.btn-container button, .dropdown select{
     background-color: #4CAF50;
     border: none;
     border-radius: 4px;
@@ -273,12 +285,30 @@ textarea {
     background-color: #45a049;
 }
 
-.project .btn-container{
-    margin-top: 25px;
+.two-buttons{
+    width: 100%;
+    
 }
 
 .project .btn-container button{
     width: 100%;
+    border-radius: 0 0 25px 25px;
+    padding: 25px 25px;
+}
+
+.project .btn-container{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+
+.two-buttons .btn-container{
+    width: 50%;
+}
+
+.two-buttons .btn-container button{
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .custom-btn {
@@ -295,17 +325,6 @@ textarea {
 .dropdown {
     display: inline-block;
     margin-bottom: 20px;
-}
-
-.dropdown select {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 4px;
-    color: #fdfdfd;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
 }
 
 .dropdown select:hover {
