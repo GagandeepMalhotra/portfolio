@@ -366,6 +366,7 @@ textarea {
 
 @media (max-width: 440px) {
     .dropdown{
+        -webkit-appearance: none;
         float: left;
         width: 100%;
         margin-top: 10px;
