@@ -274,14 +274,14 @@ textarea {
     background-color: #fdfdfd;
     border-radius: 50%;
     padding: 75px;
-    height: 400px;
+    height: 365px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.description-container{
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 50px;
+.description-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
 }
 
 .description-column p {
@@ -289,10 +289,12 @@ textarea {
 }
 
 .description-column img {
+    align-self: center;
     width: 100%;
     min-height: 50%;
     height: 50%;
     object-fit: contain;
+    object-position: bottom;
 }
 
 .tag {
@@ -389,11 +391,65 @@ textarea {
     padding-top: 0px;
 }
 
-@media (max-width: 400px) {
-    .socials {
-        margin-top: 15px;
+@media (max-width: 1400px) {
+    .description-container {
+        grid-gap: 25px;
+    }
+
+    .description-column {
+        height: 355px;
+        padding: 60px;
     }
 }
+
+@media (max-width: 1200px) {
+    .description-container {
+        grid-gap: 25px;
+    }
+
+    .description-column {
+        height: 295px;
+        padding: 31px
+    }
+}
+
+
+@media (max-width: 992px) {
+    .project-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .description-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 100px;
+        width: 66%;
+        margin: auto;
+    }
+
+    .description-column {
+        height: 459px;
+        padding: 60px
+    }
+}
+
+@media (max-width: 768px) {
+    .description-column {
+        height: 340px;
+        padding: 60px
+    }
+}
+
+@media (max-width: 522px) {
+    .description-container{
+        width: 100%;
+    }
+    .description-column {
+        height: 340px;
+        padding: 40px
+    }
+}
+
 
 @media (max-width: 440px) {
     .dropdown {
@@ -407,8 +463,8 @@ textarea {
     }
 }
 
-@media (max-width: 992px) {
-    .project-container {
-        grid-template-columns: repeat(1, 1fr);
+@media (max-width: 400px) {
+    .socials {
+        margin-top: 15px;
     }
 }
