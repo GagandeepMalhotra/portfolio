@@ -394,11 +394,13 @@ textarea {
 @media (max-width: 1400px) {
     .description-container {
         grid-gap: 25px;
+        margin: auto;
     }
 
     .description-column {
         height: 355px;
         padding: 60px;
+        margin: auto;
     }
 }
 
@@ -424,7 +426,6 @@ textarea {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 100px;
         width: 66%;
-        margin: auto;
     }
 
     .description-column {
@@ -446,7 +447,8 @@ textarea {
     }
     .description-column {
         height: 340px;
-        padding: 40px
+        padding: 40px;
+        max-width: 340px;
     }
 }
 
