@@ -9,19 +9,20 @@ h2 {
 
 @keyframes popIn {
     0% {
-      transform: translateY(100%);
-      opacity: 0;
+        transform: translateY(100%);
+        opacity: 0;
     }
+
     100% {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
-  }
-  
-  .pop-in {
+}
+
+.pop-in {
     animation: popIn 0.5s ease-out;
-  }
-  
+}
+
 @viewport {
     zoom: 1.0;
     width: device-width;
@@ -62,7 +63,7 @@ textarea {
 }
 
 .nav-link:hover {
-    color: #45a049 !important;
+    color: #008000 !important;
 }
 
 .content {
@@ -111,10 +112,11 @@ textarea {
 }
 
 .darkened-image {
-    filter: brightness(50%) blur(10px)url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
+    filter: brightness(50%) blur(10px)url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
+    ;
 }
 
-.filterbar{
+.filterbar {
     position: absolute;
     background-color: #fdfdfd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -127,11 +129,12 @@ textarea {
     padding-right: 0;
 }
 
-.carousel-item img, .carousel{
+.carousel-item img,
+.carousel {
     border-radius: 25px 25px 0 0;
 }
 
-.carousel-inner{
+.carousel-inner {
     border-radius: 25px 25px 0 0;
 }
 
@@ -153,7 +156,7 @@ textarea {
 }
 
 .socials a:hover {
-    background-color: #45a049;
+    background-color: #008000;
     /*background-color: #8d1c20;*/
     transition: 0.3s;
 }
@@ -185,7 +188,7 @@ textarea {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width:115%;
+    width: 115%;
     height: 125%;
     border-radius: 2.5%;
     background-color: #f8f9fa;
@@ -222,11 +225,11 @@ textarea {
     position: relative;
 }
 
-.project-content{
+.project-content {
     padding: 25px 25px 0 25px;
 }
 
-.project a{
+.project a {
     text-decoration: none;
     color: inherit;
 }
@@ -261,11 +264,38 @@ textarea {
     display: flow-root;
 }
 
-.slide{
+.slide {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.tag{
+.description-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfdfd;
+    border-radius: 50%;
+    padding: 75px;
+    height: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.description-container{
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 50px;
+}
+
+.description-column p {
+    height: 50%;
+}
+
+.description-column img {
+    width: 100%;
+    min-height: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.tag {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -275,12 +305,13 @@ textarea {
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
 }
 
-.tag-container{
+.tag-container {
     margin-bottom: 90px;
 }
 
-.btn-container button, .dropdown select{
-    background-color: #4CAF50;
+.btn-container button,
+.dropdown select {
+    background-color: #006400;
     border: none;
     border-radius: 4px;
     color: #fdfdfd;
@@ -288,47 +319,47 @@ textarea {
     font-size: 16px;
     padding: 8px 20px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn-container button:hover {
-    background-color: #45a049;
+    background-color: #008000;
 }
 
-.two-buttons{
+.two-buttons {
     width: 100%;
-    
+
 }
 
-.project .btn-container button{
+.project .btn-container button {
     width: 100%;
     border-radius: 0 0 25px 25px;
     padding: 25px 5px;
 }
 
-.project .btn-container{
+.project .btn-container {
     width: 100%;
     position: absolute;
     bottom: 0px;
     left: 0;
 }
 
-.two-buttons .btn-container{
+.two-buttons .btn-container {
     width: 50%;
 }
 
-.two-buttons .btn-container button{
+.two-buttons .btn-container button {
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .custom-btn {
     margin-top: 15px;
-    border: #4CAF50 solid !important;
-    background-color: #4CAF50 !important;
+    border: #006400 solid !important;
+    background-color: #006400 !important;
 }
 
 .custom-btn:hover {
-    background-color: #45a049 !important;
+    background-color: #008000 !important;
     transition: background-color 0.3s ease;
 }
 
@@ -338,7 +369,7 @@ textarea {
 }
 
 .dropdown select:hover {
-    background-color: #45a049;
+    background-color: #008000;
 }
 
 .dropdown select option {
@@ -350,7 +381,7 @@ textarea {
     font-weight: bold;
 }
 
-.splitCharacter{
+.splitCharacter {
     height: 23px;
     font-style: italic;
     overflow: hidden;
@@ -365,14 +396,13 @@ textarea {
 }
 
 @media (max-width: 440px) {
-    .dropdown{
-        -webkit-appearance: none;
+    .dropdown {
         float: left;
         width: 100%;
         margin-top: 10px;
     }
 
-    .dropdown select{
+    .dropdown select {
         width: 100%;
     }
 }
