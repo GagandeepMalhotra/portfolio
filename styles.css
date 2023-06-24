@@ -469,4 +469,7 @@ textarea {
     .socials {
         margin-top: 15px;
     }
+    .description-heading{
+        font-size: 29px;
+    }
 }
