@@ -54,27 +54,25 @@
     </nav>
 
     <div id="top" class="all-container">
-        <div class="container-fluid p-0">
-            <div id="image-container" class="position-relative">
-                <img src="/images/background3.gif" class="img-fluid darkened-image" alt="Background Image 1">
-                <div class="image-overlay position-absolute top-50 start-50 translate-middle text-center">
-                    <img src="/images/logo-crop.png" alt="Logo of Gagandeep Malhotra" style="height: auto;">
-                    <br>
-                    <div class="socials">
-                        <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
-                                class="fab fa-linkedin" style="color: #fdfdfd;"></i></a>
-                        <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"
-                                style="color: #fdfdfd;"></i></a>
-                        <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"
-                                style="color: #fdfdfd;"></i></a>
-                    </div>
+        <div id="image-container" class="position-relative container-fluid p-0">
+            <img src="/images/background3.gif" class="img-fluid darkened-image" alt="Background Image 1">
+            <div class="image-overlay position-absolute top-50 start-50 translate-middle text-center">
+                <img src="/images/logo-crop.png" alt="Logo of Gagandeep Malhotra" style="height: auto;">
+                <br>
+                <div class="socials">
+                    <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
+                            class="fab fa-linkedin" style="color: #fdfdfd;"></i></a>
+                    <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"
+                            style="color: #fdfdfd;"></i></a>
+                    <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"
+                            style="color: #fdfdfd;"></i></a>
                 </div>
             </div>
         </div>
 
         <div id="description" class="container my-10">
-            <h1 class="text-upper text-center my-10 description-heading">Welcome to <b>Gagandeep Malhotra's</b>
-                Portfolio</h1>
+            <h1 id="typewriter" class="text-upper text-center my-10 description-heading">
+                Welcome to <b>Gagandeep Malhotra's</b> Portfolio</h1>
             <div class="description-container text-center">
                 <div class="description-column">
                     <img src="/images/cardiffunilogo.jpg" alt="Cardiff Uni Logo Image">
@@ -110,6 +108,43 @@
         </style>
 
         <script>
+            // Wait for the DOM to load
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the typewriter element
+                var typewriter = document.getElementById('typewriter');
+
+                // Create a new Intersection Observer
+                var observer = new IntersectionObserver(function (entries) {
+                    // Check if the element is in view
+                    if (entries[0].isIntersecting) {
+                        // Start the typewriter effect
+                        startTypewriter();
+                        // Stop observing once the element is in view
+                        observer.disconnect();
+                    }
+                });
+
+                // Observe the typewriter element
+                observer.observe(typewriter);
+
+                // Function to start the typewriter effect
+                function startTypewriter() {
+                    var textNode = typewriter.childNodes[1];
+                    var text = textNode.textContent;
+                    var newText = '';
+                    textNode.textContent = '';
+
+                    // Iterate over each character in the original text
+                    for (var i = 0; i < text.length; i++) {
+                        // Use setTimeout to add a delay before each character
+                        setTimeout(function (index) {
+                            newText += text[index];
+                            textNode.textContent = newText;
+                        }, i * 66, i);
+                    }
+                }
+            });
+
             function isElementInViewport(element) {
                 var rect = element.getBoundingClientRect();
                 var windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -942,7 +977,7 @@
             if (hamburger.classList.contains('collapsed')) {
                 allContainer.style.marginTop = '85px';
             } else {
-                allContainer.style.marginTop = '245px';
+                allContainer.style.marginTop = '205px';
             }
         }
     </script>

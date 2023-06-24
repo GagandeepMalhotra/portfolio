@@ -7,22 +7,6 @@ h2 {
     margin-bottom: 50px !important;
 }
 
-@keyframes popIn {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.pop-in {
-    animation: popIn 0.5s ease-out;
-}
-
 @viewport {
     zoom: 1.0;
     width: device-width;
@@ -390,7 +374,17 @@ textarea {
     padding-left: 5px;
     padding-top: 0px;
 }
-
+  
+  /* Animation keyframes */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
 @media (max-width: 1400px) {
     .description-container {
         grid-gap: 25px;
