@@ -306,6 +306,7 @@ textarea {
     padding: 8px 20px;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none;
 }
 
 .btn-container button:hover {
@@ -352,6 +353,7 @@ textarea {
 .dropdown {
     display: inline-block;
     margin-bottom: 50px;
+    -webkit-appearance: none;
 }
 
 .dropdown select:hover {
@@ -374,7 +376,19 @@ textarea {
     padding-left: 5px;
     padding-top: 0px;
 }
-  
+
+.description-column, .project{
+    opacity: 0;
+    transform: translateY(250px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.description-column.animate, .project.animate{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
   /* Animation keyframes */
   @keyframes typing {
     from {

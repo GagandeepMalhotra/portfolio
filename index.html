@@ -93,20 +93,7 @@
                 </div>
             </div>
         </div>
-
-        <style>
-            .description-column {
-                opacity: 0;
-                transform: translateY(250px);
-                transition: opacity 0.5s, transform 0.5s;
-            }
-
-            .description-column.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        </style>
-
+        
         <script>
             // Wait for the DOM to load
             document.addEventListener('DOMContentLoaded', function () {
@@ -150,16 +137,22 @@
                 var windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 return (
                     rect.bottom >= 0 &&
-                    rect.top - windowHeight <= 0
+                    rect.top - windowHeight <= 100
                 );
             }
 
 
             function handleScroll() {
                 var columns = document.getElementsByClassName("description-column");
+                var projects = document.getElementsByClassName("project");
                 for (var i = 0; i < columns.length; i++) {
                     if (isElementInViewport(columns[i])) {
                         columns[i].classList.add("animate");
+                    }
+                }
+                for (var i = 0; i < projects.length; i++) {
+                    if (isElementInViewport(projects[i])) {
+                        projects[i].classList.add("animate");
                     }
                 }
             }
