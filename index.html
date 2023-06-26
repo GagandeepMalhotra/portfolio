@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg px-5 fixed-top bg-light">
         <a class="navbar-brand" href="#top">
-            <img src="/images/logo.png" width="100" height="100" class="d-inline-block align-top"
+            <img src="/images/logo-crop.png" width="100" height="100" class="d-inline-block align-top"
                 alt="Image of Gagandeep Malhotra's Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -44,7 +44,7 @@
                     <a class="nav-link off-white" href="#top">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#description">Portfolio</a>
+                    <a class="nav-link" href="#description">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -54,27 +54,36 @@
     </nav>
 
     <div id="top" class="all-container">
-        <div id="image-container" class="position-relative container-fluid p-0">
-            <img src="/images/background3.gif" class="img-fluid darkened-image" alt="Background Image 1">
-            <div class="image-overlay position-absolute top-50 start-50 translate-middle text-center">
-                <img src="/images/logo-crop.png" alt="Logo of Gagandeep Malhotra" style="height: auto;">
-                <br>
-                <div class="socials">
-                    <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
-                            class="fab fa-linkedin" style="color: #fdfdfd;"></i></a>
-                    <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"
-                            style="color: #fdfdfd;"></i></a>
-                    <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"
-                            style="color: #fdfdfd;"></i></a>
+        <div class="position-relative container-fluid p-0">
+            <div id="image-container" class="position-relative">
+                <div class="position-absolute start-50 translate-middle text-center main-title">
+                    <h1 class="text-upper text-center" style="color: #fdfdfd;">
+                        Welcome to<div class="typewriter">Gagandeep Malhotra's</div>Portfolio</h1>
+                    <br>
+                    <div class="socials">
+                        <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
+                                class="fab fa-linkedin" style="color: #111111; width: 40px;"></i></a>
+                        <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"
+                                style="color: #111111;"></i></a>
+                        <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"
+                                style="color: #111111;"></i></a>
+                    </div>
                 </div>
             </div>
+            <div id="background" class="bg"></div>
+            <div class='air air1'></div>
+            <div class='air air2'></div>
+            <div class='air air3'></div>
+            <div class='air air4'></div>
         </div>
 
+
         <div id="description" class="container my-10">
-            <h1 class="text-upper text-center my-10 description-heading">
-                Welcome to <div class="typewriter">Gagandeep Malhotra's</div> Portfolio</h1>
-            <div class="description-container text-center pop-up">
-                <div class="description-column">
+
+            <h2 class="text-upper text-center typewriter">Education and Experience</h2>
+            <div class="description-container text-center">
+                <div class="description-column pop-up">
+
                     <img src="/images/cardiffunilogo.jpg" alt="Cardiff Uni Logo Image">
                     <p><br>Graduated with a <strong>First Class Honours Computer Science BSc Degree</strong> at
                         <strong>Cardiff University</strong>
@@ -96,38 +105,38 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-    var typewriters = document.getElementsByClassName('typewriter');
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                startTypewriter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    });
+                var typewriters = document.getElementsByClassName('typewriter');
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            startTypewriter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
 
-    Array.from(typewriters).forEach(function (element) {
-        observer.observe(element);
-    });
+                Array.from(typewriters).forEach(function (element) {
+                    observer.observe(element);
+                });
 
-    function startTypewriter(element) {
-        var text = element.innerText;
-        var newText = '';
-        element.innerText = '';
-        element.classList.add('typing');
+                function startTypewriter(element) {
+                    var text = element.innerText;
+                    var newText = '';
+                    element.innerText = '';
+                    element.classList.add('typing');
 
-        Array.from(text).forEach(function (character, index) {
-            setTimeout(function () {
-                newText += character;
-                element.innerText = newText;
+                    Array.from(text).forEach(function (character, index) {
+                        setTimeout(function () {
+                            newText += character;
+                            element.innerText = newText;
 
-                if (index === text.length - 1) {
-                    element.classList.remove('typing');
+                            if (index === text.length - 1) {
+                                element.classList.remove('typing');
+                            }
+                        }, index * 66);
+                    });
                 }
-            }, index * 90);
-        });
-    }
-});
+            });
 
 
             function isElementInViewport(element) {
@@ -159,7 +168,8 @@
                 <div class="btn-container pop-up" style="float: left;">
                     <button onclick="shuffleProjects()"><i class="fas fa-random" style="color: #fdfdfd;"></i></button>
                 </div>
-                <div class="btn-container pop-up" style="float: left; margin-left: 10px;">
+                <div class="btn-container pop-up"
+                    style="float: left; margin-left: 10px; z-index: 100; position: relative;">
                     <button onclick="toggleFilter()" style="text-align: left;"><i class="fas fa-filter"></i></button>
                     <div class="filterbar" id="filterbar">
                         <div id="checkboxes" style="display: none;">
