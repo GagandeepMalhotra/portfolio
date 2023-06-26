@@ -71,66 +71,64 @@
         </div>
 
         <div id="description" class="container my-10">
-            <h1 id="typewriter" class="text-upper text-center my-10 description-heading">
-                Welcome to <b>Gagandeep Malhotra's</b> Portfolio</h1>
-            <div class="description-container text-center">
+            <h1 class="text-upper text-center my-10 description-heading">
+                Welcome to <div class="typewriter">Gagandeep Malhotra's</div> Portfolio</h1>
+            <div class="description-container text-center pop-up">
                 <div class="description-column">
                     <img src="/images/cardiffunilogo.jpg" alt="Cardiff Uni Logo Image">
                     <p><br>Graduated with a <strong>First Class Honours Computer Science BSc Degree</strong> at
                         <strong>Cardiff University</strong>
                     </p>
                 </div>
-                <div class="description-column">
+                <div class="description-column pop-up">
                     <img src="/images/deloittelogo.png" alt="Deloitte Logo Image" style="padding-bottom: 20px;">
                     <p><br>Completed work experience as part of the <strong>Careers Shapers Program</strong> at
                         <strong>Deloitte</strong>
                     </p>
                 </div>
-                <div class="description-column">
+                <div class="description-column pop-up">
                     <img src="/images/skylogo.png" alt="Sky Logo Image" style="width: 60%;">
                     <p><br>Completed work experience at <strong>Sky</strong> as part of the <strong>Software
                             Development</strong> team</p>
                 </div>
             </div>
         </div>
-        
+
         <script>
-            // Wait for the DOM to load
             document.addEventListener('DOMContentLoaded', function () {
-                // Get the typewriter element
-                var typewriter = document.getElementById('typewriter');
+    var typewriters = document.getElementsByClassName('typewriter');
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                startTypewriter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
 
-                // Create a new Intersection Observer
-                var observer = new IntersectionObserver(function (entries) {
-                    // Check if the element is in view
-                    if (entries[0].isIntersecting) {
-                        // Start the typewriter effect
-                        startTypewriter();
-                        // Stop observing once the element is in view
-                        observer.disconnect();
-                    }
-                });
+    Array.from(typewriters).forEach(function (element) {
+        observer.observe(element);
+    });
 
-                // Observe the typewriter element
-                observer.observe(typewriter);
+    function startTypewriter(element) {
+        var text = element.innerText;
+        var newText = '';
+        element.innerText = '';
+        element.classList.add('typing');
 
-                // Function to start the typewriter effect
-                function startTypewriter() {
-                    var textNode = typewriter.childNodes[1];
-                    var text = textNode.textContent;
-                    var newText = '';
-                    textNode.textContent = '';
+        Array.from(text).forEach(function (character, index) {
+            setTimeout(function () {
+                newText += character;
+                element.innerText = newText;
 
-                    // Iterate over each character in the original text
-                    for (var i = 0; i < text.length; i++) {
-                        // Use setTimeout to add a delay before each character
-                        setTimeout(function (index) {
-                            newText += text[index];
-                            textNode.textContent = newText;
-                        }, i * 66, i);
-                    }
+                if (index === text.length - 1) {
+                    element.classList.remove('typing');
                 }
-            });
+            }, index * 90);
+        });
+    }
+});
+
 
             function isElementInViewport(element) {
                 var rect = element.getBoundingClientRect();
@@ -143,16 +141,10 @@
 
 
             function handleScroll() {
-                var columns = document.getElementsByClassName("description-column");
-                var projects = document.getElementsByClassName("project");
-                for (var i = 0; i < columns.length; i++) {
-                    if (isElementInViewport(columns[i])) {
-                        columns[i].classList.add("animate");
-                    }
-                }
-                for (var i = 0; i < projects.length; i++) {
-                    if (isElementInViewport(projects[i])) {
-                        projects[i].classList.add("animate");
+                var pop = document.getElementsByClassName("pop-up");
+                for (var i = 0; i < pop.length; i++) {
+                    if (isElementInViewport(pop[i])) {
+                        pop[i].classList.add("animate");
                     }
                 }
             }
@@ -162,12 +154,12 @@
         </script>
 
         <div id="portfolio" class="container my-10">
-            <h2 class="text-upper text-center">Projects</h2>
+            <h2 class="text-upper text-center typewriter">Projects</h2>
             <div class="sortbar">
-                <div class="btn-container" style="float: left;">
+                <div class="btn-container pop-up" style="float: left;">
                     <button onclick="shuffleProjects()"><i class="fas fa-random" style="color: #fdfdfd;"></i></button>
                 </div>
-                <div class="btn-container" style="float: left; margin-left: 10px;">
+                <div class="btn-container pop-up" style="float: left; margin-left: 10px;">
                     <button onclick="toggleFilter()" style="text-align: left;"><i class="fas fa-filter"></i></button>
                     <div class="filterbar" id="filterbar">
                         <div id="checkboxes" style="display: none;">
@@ -183,12 +175,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="btn-container" style="float: right; margin-left: 10px;">
+                <div class="btn-container pop-up" style="float: right; margin-left: 10px;">
                     <button class="toggle-btn" onclick="toggleOrder()">
                         <i class="fa fa-sort-amount-down"></i></button>
                 </div>
-                <div class="dropdown" style="float: right;">
-                    <select onchange="sortProjects(this.value)" style="padding: 10px 20px;">
+                <div class="dropdown pop-up" style="float: right;">
+                    <select onchange="sortProjects(this.value)">
                         <option value="date">Sort: Date</option>
                         <option value="name">Sort: Alphabetically</option>
                     </select>
@@ -244,7 +236,7 @@
                 }
             </script>
             <div class="project-container" id="projectContainer">
-                <div class="project" data-date="2023-06-05" data-name="Gagan Construction Ltd - Website"
+                <div class="project pop-up" data-date="2023-06-05" data-name="Gagan Construction Ltd - Website"
                     data-category="websites">
                     <div id="gaganconstruction" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -306,7 +298,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2023-02-05" data-name="Automated Video Editing & Subtitles"
+                <div class="project pop-up" data-date="2023-02-05" data-name="Automated Video Editing & Subtitles"
                     data-category="tools">
                     <div id="video" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -357,7 +349,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2023-02-05" data-name="Youtube Meta Scraper" data-category="tools">
+                <div class="project pop-up" data-date="2023-02-05" data-name="Youtube Meta Scraper"
+                    data-category="tools">
 
                     <div id="youtubemeta" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -401,8 +394,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2023-01-10" data-name="Simulated Annealing to Determine Kemeny Ranking"
-                    data-category="tools">
+                <div class="project pop-up" data-date="2023-01-10"
+                    data-name="Simulated Annealing to Determine Kemeny Ranking" data-category="tools">
                     <div id="kemeny" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -445,7 +438,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2022-06-10" data-name="Odds-On - GMTK Game Jam" data-category="games">
+                <div class="project pop-up" data-date="2022-06-10" data-name="Odds-On - GMTK Game Jam"
+                    data-category="games">
                     <div id="oddson" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -505,7 +499,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2021-05-20"
+                <div class="project pop-up" data-date="2021-05-20"
                     data-name="Cardiff Electronics and Technology Society - Website" data-category="websites">
                     <div id="tecsoc" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -565,7 +559,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2020-03-10"
+                <div class="project pop-up" data-date="2020-03-10"
                     data-name="Analysis of a Range of Optimisation Pathfinding Algorithms" data-category="tools">
                     <div id="pathfinding" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -657,7 +651,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2020-01-05" data-name="Contemporaneous Cannons - GMTK Game Jam"
+                <div class="project pop-up" data-date="2020-01-05" data-name="Contemporaneous Cannons - GMTK Game Jam"
                     data-category="games">
                     <div id="cannon" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -728,7 +722,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2020-01-02" data-name="Text Analysis" data-category="tools">
+                <div class="project pop-up" data-date="2020-01-02" data-name="Text Analysis" data-category="tools">
                     <div id="textanalysis" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -772,7 +766,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2020-01-01" data-name="Text to Array" data-category="tools">
+                <div class="project pop-up" data-date="2020-01-01" data-name="Text to Array" data-category="tools">
                     <div id="texttoarray" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -816,7 +810,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2019-08-10" data-name="Maze Traversal Using Genetic Algorithms"
+                <div class="project pop-up" data-date="2019-08-10" data-name="Maze Traversal Using Genetic Algorithms"
                     data-category="machine-learning">
                     <div id="mazewalker" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -860,7 +854,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project" data-date="2019-06-10"
+                <div class="project pop-up" data-date="2019-06-10"
                     data-name="Evolution of a Population Using Reinforcement Learning" data-category="machine-learning">
                     <div id="evolution" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -908,21 +902,21 @@
             </div>
 
             <div id="contact" class="container my-10">
-                <h2 class="container text-upper text-center">Contact Form</h2>
+                <h2 class="container text-upper text-center typewriter">Contact Form</h2>
                 <form action="https://formspree.io/f/xoqzgkza" method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group pop-up">
                         <label for="email">Email:</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group pop-up">
                         <label for="message">Message:</label>
-                        <textarea class="form-control" id="message" name="message" required></textarea>
+                        <textarea class="form-control pop-up" id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary custom-btn"
+                    <button type="submit" class="btn btn-primary custom-btn pop-up"
                         style="margin-left: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                         <i class="fas fa-paper-plane"></i>&ensp;Send Email</button>
                 </form>
