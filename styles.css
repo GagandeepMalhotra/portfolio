@@ -633,6 +633,9 @@ textarea {
         padding: 40px;
         max-width: 340px;
     }
+    .navbar img {
+        margin: -20px -25px
+    }
 }
 
 @media (max-width: 490px) {
