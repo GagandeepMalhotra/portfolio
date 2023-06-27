@@ -26,8 +26,8 @@ textarea {
 }
 
 .my-10 {
-    margin-top: 15rem !important;
-    margin-bottom: 15rem !important;
+    margin-top: 10rem !important;
+    margin-bottom: 10rem !important;
 }
 
 .main-title {
@@ -111,13 +111,15 @@ textarea {
 .bg {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    width: 110%;
+    left: -5%;
     height: 150%;
-    background-image: url('/images/background.jpg');
+    background-image: url('/images/background.png');
     background-size: cover;
-    animation: scrollBg 15s linear infinite;
+    animation: scrollBg 20s linear infinite;
     z-index: -1;
+    padding-bottom: 40%;
+    filter: brightness(50%) blur(4px)url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
 }
 
 @keyframes scrollBg {
@@ -126,7 +128,7 @@ textarea {
     }
 
     to {
-        transform: translateY(-330px);
+        transform: translateY(-30%);
     }
 }
 
@@ -640,6 +642,10 @@ textarea {
 
 @media (max-width: 490px) {
     .typewriter {
-        font-size: 130%;
+        font-size: 175%;
+    }
+
+    .main-title {
+        padding: 25px 0px;
     }
 }
