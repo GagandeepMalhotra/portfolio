@@ -988,86 +988,86 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script>
-                    var navbarToggler = document.querySelector('.navbar-toggler');
+        var navbarToggler = document.querySelector('.navbar-toggler');
 
-                    // Attach click event listener to the button
-                    navbarToggler.addEventListener('click', function () {
-                        checkNavbarNav();
-                    });
+        // Attach click event listener to the button
+        navbarToggler.addEventListener('click', function () {
+            checkNavbarNav();
+        });
 
-                    // Define the checkNavbarNav function
-                    function checkNavbarNav() {
-                        var allContainer = document.querySelector('.all-container');
-                        if (hamburger.classList.contains('collapsed')) {
-                            allContainer.style.marginTop = '85px';
-                        } else {
-                            allContainer.style.marginTop = '205px';
-                        }
-                    }
+        // Define the checkNavbarNav function
+        function checkNavbarNav() {
+            var allContainer = document.querySelector('.all-container');
+            if (hamburger.classList.contains('collapsed')) {
+                allContainer.style.marginTop = '85px';
+            } else {
+                allContainer.style.marginTop = '205px';
+            }
+        }
     </script>
 
     <script>
-                    // Remove '#' from links when clicked
-                    document.addEventListener("DOMContentLoaded", function () {
-                        var links = document.querySelectorAll("a[href^='#']");
-                        for (var i = 0; i < links.length; i++) {
-                            links[i].addEventListener("click", function (event) {
-                                event.preventDefault();
-                                var target = this.getAttribute("href").slice(1);
-                                var element = document.getElementById(target);
-                                if (element) {
-                                    element.scrollIntoView();
-                                }
-                            });
-                        }
-                        handleScroll();
-                    });
+        // Remove '#' from links when clicked
+        document.addEventListener("DOMContentLoaded", function () {
+            var links = document.querySelectorAll("a[href^='#']");
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", function (event) {
+                    event.preventDefault();
+                    var target = this.getAttribute("href").slice(1);
+                    var element = document.getElementById(target);
+                    if (element) {
+                        element.scrollIntoView();
+                    }
+                });
+            }
+            handleScroll();
+        });
     </script>
     <script>
-                    let sortOrder = 'desc'; // Change the default sorting order to 'desc'
+        let sortOrder = 'desc'; // Change the default sorting order to 'desc'
 
-                    function sortProjects(value) {
-                        const container = document.getElementById('projectContainer');
-                        const projects = Array.from(container.getElementsByClassName('project'));
+        function sortProjects(value) {
+            const container = document.getElementById('projectContainer');
+            const projects = Array.from(container.getElementsByClassName('project'));
 
-                        if (value === 'date') {
-                            projects.sort((a, b) => {
-                                const dateA = new Date(a.getAttribute('data-date'));
-                                const dateB = new Date(b.getAttribute('data-date'));
-                                return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-                            });
-                        } else if (value === 'name') {
-                            projects.sort((a, b) => {
-                                const nameA = a.getAttribute('data-name');
-                                const nameB = b.getAttribute('data-name');
-                                return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-                            });
-                        }
+            if (value === 'date') {
+                projects.sort((a, b) => {
+                    const dateA = new Date(a.getAttribute('data-date'));
+                    const dateB = new Date(b.getAttribute('data-date'));
+                    return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+                });
+            } else if (value === 'name') {
+                projects.sort((a, b) => {
+                    const nameA = a.getAttribute('data-name');
+                    const nameB = b.getAttribute('data-name');
+                    return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+                });
+            }
 
-                        projects.forEach(project => container.appendChild(project));
-                        handleScroll();
-                    }
+            projects.forEach(project => container.appendChild(project));
+            handleScroll();
+        }
 
-                    function toggleOrder() {
-                        sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-                        const toggleBtn = document.querySelector('.toggle-btn');
-                        toggleBtn.innerHTML = `${sortOrder === 'asc' ? '<i class="fa fa-sort-amount-up"></i>' : '<i class="fa fa-sort-amount-down"></i>'}`;
-                        sortProjects(document.querySelector('select').value);
-                        handleScroll();
-                    }
+        function toggleOrder() {
+            sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+            const toggleBtn = document.querySelector('.toggle-btn');
+            toggleBtn.innerHTML = `${sortOrder === 'asc' ? '<i class="fa fa-sort-amount-up"></i>' : '<i class="fa fa-sort-amount-down"></i>'}`;
+            sortProjects(document.querySelector('select').value);
+            handleScroll();
+        }
 
 
-                    function shuffleProjects() {
-                        const container = document.getElementById('projectContainer');
-                        const projects = Array.from(container.getElementsByClassName('project'));
+        function shuffleProjects() {
+            const container = document.getElementById('projectContainer');
+            const projects = Array.from(container.getElementsByClassName('project'));
 
-                        projects.sort(() => Math.random() - 0.5);
+            projects.sort(() => Math.random() - 0.5);
 
-                        projects.forEach(project => container.appendChild(project));
-                        var dropdown = document.getElementById("dropdown");
-                        dropdown.value = "random";
-                        handleScroll();
-                    }
+            projects.forEach(project => container.appendChild(project));
+            var dropdown = document.getElementById("dropdown");
+
+            handleScroll();
+        }
     </script>
 </body>
 
