@@ -57,9 +57,9 @@
         <div class="position-relative container-fluid p-0">
             <div id="image-container" class="position-relative">
                 <div class="position-absolute start-50 translate-middle text-center main-title">
-                    <h1 class="text-upper text-center" style="color: #fdfdfd;">
-                        Welcome to<div class="typewriter">Gagandeep Malhotra's</div>Portfolio</h1>
-                    <br>
+                    <h1 class="text-upper text-center" style="color: #fdfdfd; font-size: 1.5rem; line-height: 1.05;">
+                        Welcome to<div class="white typewriter" style="font-size: 300%;">Gagandeep Malhotra's</div>
+                        Portfolio</h1>
                     <div class="socials">
                         <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
                                 class="fab fa-linkedin" style="color: #111111; width: 40px;"></i></a>
@@ -79,7 +79,7 @@
 
         <div id="description" class="container my-10">
 
-            <h2 class="text-upper text-center typewriter">Education and Experience</h2>
+            <h2 class="text-upper text-center black typewriter">Education and Experience</h2>
             <div class="description-container text-center">
                 <div class="description-column pop-up">
 
@@ -89,7 +89,7 @@
                     </p>
                 </div>
                 <div class="description-column pop-up">
-                    <img src="/images/deloittelogo.png" alt="Deloitte Logo Image" style="padding-bottom: 20px;">
+                    <img src="/images/deloittelogo.png" alt="Deloitte Logo Image" style="padding-bottom: 15px;">
                     <p><br>Completed work experience as part of the <strong>Careers Shapers Program</strong> at
                         <strong>Deloitte</strong>
                     </p>
@@ -143,7 +143,7 @@
                 var windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 return (
                     rect.bottom >= 0 &&
-                    rect.top - windowHeight <= 100
+                    rect.top - windowHeight <= 150
                 );
             }
 
@@ -162,16 +162,17 @@
         </script>
 
         <div id="portfolio" class="container my-10">
-            <h2 class="text-upper text-center typewriter">Projects</h2>
+            <h2 class="text-upper text-center black typewriter">Projects</h2>
             <div class="sortbar">
                 <div class="btn-container pop-up" style="float: left;">
                     <button onclick="shuffleProjects()"><i class="fas fa-random" style="color: #fdfdfd;"></i></button>
                 </div>
+
                 <div class="btn-container pop-up"
                     style="float: left; margin-left: 10px; z-index: 100; position: relative;">
-                    <button onclick="toggleFilter()" style="text-align: left;"><i class="fas fa-filter"></i></button>
+                    <button style="text-align: left;" id="filterButton"><i class="fas fa-filter"></i></button>
                     <div class="filterbar" id="filterbar">
-                        <div id="checkboxes" style="display: none;">
+                        <div id="checkboxes">
                             <label><input type="checkbox" value="all" onchange="toggleAllCheckboxes(this)"> <span
                                     id="selectAllText">Select All</span></label>
                             <hr>
@@ -184,6 +185,18 @@
                         </div>
                     </div>
                 </div>
+
+                <style>
+                    .filterbar {
+                        display: none;
+                    }
+
+                    .filterbar.show {
+                        display: block;
+                    }
+                </style>
+
+
                 <div class="btn-container pop-up" style="float: right; margin-left: 10px;">
                     <button class="toggle-btn" onclick="toggleOrder()">
                         <i class="fa fa-sort-amount-down"></i></button>
@@ -198,12 +211,8 @@
             </div>
 
             <script>
-                function toggleFilter() {
-                    var checkboxesDiv = document.getElementById("checkboxes");
-                    checkboxesDiv.style.display = checkboxesDiv.style.display === "none" ? "block" : "none";
-                    var filterbarDiv = document.getElementById("filterbar");
-                    filterbarDiv.style.padding = filterbarDiv.style.padding ? '' : '15px';
-                }
+
+
                 function toggleAllCheckboxes(checkbox) {
                     var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']");
                     var selectAllText = document.getElementById("selectAllText");
@@ -217,8 +226,8 @@
                     } else {
                         selectAllText.textContent = "Select All";
                     }
-
                     filterProjects();
+                    handleScroll();
                 }
 
                 function filterProjects() {
@@ -242,7 +251,26 @@
                             project.style.display = "none";
                         }
                     }
+                    handleScroll();
                 }
+                document.addEventListener("DOMContentLoaded", function () {
+                    var filterButton = document.getElementById("filterButton");
+                    var filterBar = document.getElementById("filterbar");
+                    var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']");
+
+                    // Toggle visibility of checkboxes when filter bar button is clicked
+                    filterButton.addEventListener("click", function (event) {
+                        event.stopPropagation();
+                        filterBar.classList.toggle("show");
+                    });
+
+                    // Close filter bar if user clicks outside of the filter bar
+                    document.addEventListener("click", function (event) {
+                        if (!filterBar.contains(event.target)) {
+                            filterBar.classList.remove("show");
+                        }
+                    });
+                });
             </script>
             <div class="project-container" id="projectContainer">
                 <div class="project pop-up" data-date="2023-06-05" data-name="Gagan Construction Ltd - Website"
@@ -911,7 +939,7 @@
             </div>
 
             <div id="contact" class="container my-10">
-                <h2 class="container text-upper text-center typewriter">Contact Form</h2>
+                <h2 class="container text-upper text-center black typewriter">Contact Form</h2>
                 <form action="https://formspree.io/f/xoqzgkza" method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -925,8 +953,8 @@
                         <label for="message">Message:</label>
                         <textarea class="form-control pop-up" id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary custom-btn pop-up"
-                        style="margin-left: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    <button type="submit" class="btn custom-btn pop-up"
+                        style="margin-left: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); color: #fdfdfd;">
                         <i class="fas fa-paper-plane"></i>&ensp;Send Email</button>
                 </form>
             </div>
@@ -960,82 +988,86 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script>
-        var navbarToggler = document.querySelector('.navbar-toggler');
+                    var navbarToggler = document.querySelector('.navbar-toggler');
 
-        // Attach click event listener to the button
-        navbarToggler.addEventListener('click', function () {
-            checkNavbarNav();
-        });
+                    // Attach click event listener to the button
+                    navbarToggler.addEventListener('click', function () {
+                        checkNavbarNav();
+                    });
 
-        // Define the checkNavbarNav function
-        function checkNavbarNav() {
-            var allContainer = document.querySelector('.all-container');
-            if (hamburger.classList.contains('collapsed')) {
-                allContainer.style.marginTop = '85px';
-            } else {
-                allContainer.style.marginTop = '205px';
-            }
-        }
-    </script>
-
-    <script>
-        // Remove '#' from links when clicked
-        document.addEventListener("DOMContentLoaded", function () {
-            var links = document.querySelectorAll("a[href^='#']");
-            for (var i = 0; i < links.length; i++) {
-                links[i].addEventListener("click", function (event) {
-                    event.preventDefault();
-                    var target = this.getAttribute("href").slice(1);
-                    var element = document.getElementById(target);
-                    if (element) {
-                        element.scrollIntoView();
+                    // Define the checkNavbarNav function
+                    function checkNavbarNav() {
+                        var allContainer = document.querySelector('.all-container');
+                        if (hamburger.classList.contains('collapsed')) {
+                            allContainer.style.marginTop = '85px';
+                        } else {
+                            allContainer.style.marginTop = '205px';
+                        }
                     }
-                });
-            }
-        });
+    </script>
+
+    <script>
+                    // Remove '#' from links when clicked
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var links = document.querySelectorAll("a[href^='#']");
+                        for (var i = 0; i < links.length; i++) {
+                            links[i].addEventListener("click", function (event) {
+                                event.preventDefault();
+                                var target = this.getAttribute("href").slice(1);
+                                var element = document.getElementById(target);
+                                if (element) {
+                                    element.scrollIntoView();
+                                }
+                            });
+                        }
+                        handleScroll();
+                    });
     </script>
     <script>
-        let sortOrder = 'desc'; // Change the default sorting order to 'desc'
+                    let sortOrder = 'desc'; // Change the default sorting order to 'desc'
 
-        function sortProjects(value) {
-            const container = document.getElementById('projectContainer');
-            const projects = Array.from(container.getElementsByClassName('project'));
+                    function sortProjects(value) {
+                        const container = document.getElementById('projectContainer');
+                        const projects = Array.from(container.getElementsByClassName('project'));
 
-            if (value === 'date') {
-                projects.sort((a, b) => {
-                    const dateA = new Date(a.getAttribute('data-date'));
-                    const dateB = new Date(b.getAttribute('data-date'));
-                    return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-                });
-            } else if (value === 'name') {
-                projects.sort((a, b) => {
-                    const nameA = a.getAttribute('data-name');
-                    const nameB = b.getAttribute('data-name');
-                    return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-                });
-            }
+                        if (value === 'date') {
+                            projects.sort((a, b) => {
+                                const dateA = new Date(a.getAttribute('data-date'));
+                                const dateB = new Date(b.getAttribute('data-date'));
+                                return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+                            });
+                        } else if (value === 'name') {
+                            projects.sort((a, b) => {
+                                const nameA = a.getAttribute('data-name');
+                                const nameB = b.getAttribute('data-name');
+                                return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+                            });
+                        }
 
-            projects.forEach(project => container.appendChild(project));
-        }
+                        projects.forEach(project => container.appendChild(project));
+                        handleScroll();
+                    }
 
-        function toggleOrder() {
-            sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-            const toggleBtn = document.querySelector('.toggle-btn');
-            toggleBtn.innerHTML = `${sortOrder === 'asc' ? '<i class="fa fa-sort-amount-up"></i>' : '<i class="fa fa-sort-amount-down"></i>'}`;
-            sortProjects(document.querySelector('select').value);
-        }
+                    function toggleOrder() {
+                        sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+                        const toggleBtn = document.querySelector('.toggle-btn');
+                        toggleBtn.innerHTML = `${sortOrder === 'asc' ? '<i class="fa fa-sort-amount-up"></i>' : '<i class="fa fa-sort-amount-down"></i>'}`;
+                        sortProjects(document.querySelector('select').value);
+                        handleScroll();
+                    }
 
 
-        function shuffleProjects() {
-            const container = document.getElementById('projectContainer');
-            const projects = Array.from(container.getElementsByClassName('project'));
+                    function shuffleProjects() {
+                        const container = document.getElementById('projectContainer');
+                        const projects = Array.from(container.getElementsByClassName('project'));
 
-            projects.sort(() => Math.random() - 0.5);
+                        projects.sort(() => Math.random() - 0.5);
 
-            projects.forEach(project => container.appendChild(project));
-            var dropdown = document.getElementById("dropdown");
-            dropdown.value = "random";
-        }
+                        projects.forEach(project => container.appendChild(project));
+                        var dropdown = document.getElementById("dropdown");
+                        dropdown.value = "random";
+                        handleScroll();
+                    }
     </script>
 </body>
 

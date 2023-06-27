@@ -26,13 +26,13 @@ textarea {
 }
 
 .my-10 {
-    margin-top: 10rem !important;
-    margin-bottom: 10rem !important;
+    margin-top: 12.5rem !important;
+    margin-bottom: 12.5rem !important;
 }
 
 .main-title {
-    padding: 50px 0px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 25px 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5), 0px -4px 8px rgba(0, 0, 0, 0.5);
     background-color: #111111;
     width: 100%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -251,6 +251,7 @@ textarea {
 }
 
 .socials {
+    margin-top: 10px;
     display: inline-flex;
 }
 
@@ -378,6 +379,10 @@ textarea {
 
 .slide {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#checkboxes{
+    padding: 15px;
 }
 
 .description-column {
@@ -528,6 +533,14 @@ textarea {
     transform: translateY(0);
 }
 
+.white{
+    border-color: #fdfdfd;
+}
+
+.black{
+    border-color: #111;
+}
+
 .typewriter {
     font-size: 200%;
 }
@@ -539,7 +552,8 @@ textarea {
 }
 
 .typewriter.typing::after {
-    border-right: 0.15em solid #fdfdfd;
+    border-right: 0.15em solid;
+    border-color: inherit;
 }
 
 /* Animation keyframes */
@@ -621,6 +635,11 @@ textarea {
     }
 }
 
+@media (max-width: 490px) {
+    .typewriter {
+        font-size: 250% !important;
+    }
+}
 
 @media (max-width: 440px) {
     .dropdown {
@@ -634,18 +653,14 @@ textarea {
     }
 }
 
-@media (max-width: 400px) {
-    .description-heading {
-        font-size: 29px;
+@media (max-width: 420px) {
+    .typewriter {
+        font-size: 200% !important;
     }
 }
 
-@media (max-width: 490px) {
-    .typewriter {
-        font-size: 175%;
-    }
-
-    .main-title {
-        padding: 25px 0px;
+@media (max-width: 400px) {
+    .description-heading {
+        font-size: 29px;
     }
 }
