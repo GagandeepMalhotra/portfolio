@@ -44,7 +44,7 @@
                     <a class="nav-link off-white" href="#top">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#description">Projects</a>
+                    <a class="nav-link" href="#portfolio">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -245,7 +245,7 @@
                         var project = projectContainers[j];
                         var projectCategory = project.dataset.category;
 
-                        if (selectedCategories.length === 0 || selectedCategories.includes(projectCategory)) {
+                        if (selectedCategories.length === 0 || selectedCategories.some(category => projectCategory.includes(category))) {
                             project.style.display = "block";
                         } else {
                             project.style.display = "none";
@@ -258,13 +258,13 @@
                     var filterBar = document.getElementById("filterbar");
                     var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']");
 
-                    // Toggle visibility of checkboxes when filter bar button is clicked
+                    //Toggle visibility of checkboxes when filter bar button is clicked
                     filterButton.addEventListener("click", function (event) {
                         event.stopPropagation();
                         filterBar.classList.toggle("show");
                     });
 
-                    // Close filter bar if user clicks outside of the filter bar
+                    //Close filter bar if user clicks outside of the filter bar
                     document.addEventListener("click", function (event) {
                         if (!filterBar.contains(event.target)) {
                             filterBar.classList.remove("show");
@@ -275,8 +275,8 @@
             <div class="project-container" id="projectContainer">
 
                 <div class="project pop-up" data-date="2023-08-05" data-name="AI Learns to Escape Using Deep Reinforcement Learning"
-                    data-category="tools">
-                    <div id="eye-tracker" class="carousel slide" data-bs-ride="carousel">
+                    data-category="machine-learning tools games">
+                    <div id="mlagents" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/images/mlagent/mlagent.jpg" class="d-block w-100"
@@ -298,13 +298,23 @@
                                     alt="Image of AI Learns to Escape Using Deep Reinforcement Learning 4">
                                 <div class="carousel-caption"></div>
                             </div>
+                            <div class="carousel-item">
+                                <img src="/images/mlagent/mlagent5.jpg" class="d-block w-100"
+                                    alt="Image of AI Learns to Escape Using Deep Reinforcement Learning 4">
+                                <div class="carousel-caption"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/mlagent/mlagent6.jpg" class="d-block w-100"
+                                    alt="Image of AI Learns to Escape Using Deep Reinforcement Learning 4">
+                                <div class="carousel-caption"></div>
+                            </div>
 
-                            <button class="carousel-control-prev" type="button" data-bs-target="#eye-tracker"
+                            <button class="carousel-control-prev" type="button" data-bs-target="#mlagents"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#eye-tracker"
+                            <button class="carousel-control-next" type="button" data-bs-target="#mlagents"
                                 data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
@@ -312,12 +322,13 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>AI Learns to Escape Using Deep Reinforcement Learningg</h3>
+                        <h3>AI Learns to Escape Using Deep Reinforcement Learning</h3>
                         <p>2023</p>
                         <div class="tag-container">
                             <div class="tag">C#</div>
                             <div class="tag">TensorFlow</div>
                             <div class="tag">Unity - MLAgents</div>
+                            <div class="tag">DaVinci Resolve</div>
                         </div>
                         <div class="btn-container">
                             <a
@@ -331,11 +342,8 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="project pop-up" data-date="2023-07-05" data-name="Building a Prototype to Track Eye Gaze Using Machine Learning"
-                    data-category="tools">
+                    data-category="machine-learning tools">
                     <div id="eye-tracker" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -720,7 +728,7 @@
                     </div>
                 </div>
                 <div class="project pop-up" data-date="2020-03-10"
-                    data-name="Analysis of a Range of Optimisation Pathfinding Algorithms" data-category="tools">
+                    data-name="Analysis of a Range of Optimisation Pathfinding Algorithms" data-category="tools games">
                     <div id="pathfinding" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
