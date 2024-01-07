@@ -620,7 +620,7 @@ textarea {
 @media (max-width: 768px) {
     .description-column {
         height: 340px;
-        padding: 60px
+        padding: 50px
     }
 }
 
