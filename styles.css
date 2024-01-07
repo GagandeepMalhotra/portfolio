@@ -586,11 +586,23 @@ textarea {
     }
 }
 
-
 @media (max-width: 1200px) {
+    .description-container {
+        grid-gap: 25px;
+    }
+
+    .description-column {
+        height: 295px;
+        padding: 31px;
+    }
+
     .project-container {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+
+@media (max-width: 992px) {
 
     .description-container {
         display: grid;
