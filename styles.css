@@ -270,9 +270,12 @@ textarea {
 
 .socials a:hover,
 .description-column:hover {
-    transform: scale(1.2);
+    scale: 1.1;
     transition: 0.3s;
-    height: 0px;
+}
+
+.description-column{
+    transition: 0.3s;
 }
 
 .collapsed {
