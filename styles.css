@@ -343,7 +343,7 @@ textarea {
     transition: 0.3s !important;
 }
 
-@media screen and (min-width: 771px) {
+@media (min-width: 771px) {
     .project:hover {
       transform: scale(1.035);
       transition: 0.3s;
