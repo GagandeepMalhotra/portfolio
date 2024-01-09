@@ -340,6 +340,12 @@ textarea {
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: 0.3s !important;
+}
+
+.project:hover {
+    scale: 1.1;
+    transition: 0.3s;
 }
 
 .project-content {
