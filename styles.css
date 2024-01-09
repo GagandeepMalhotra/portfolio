@@ -390,10 +390,7 @@ textarea {
 }
 
 .description-column {
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
+    transition: 0.3s !important;
     display: flex;
     flex-direction: column;
     background-color: #fdfdfd;
