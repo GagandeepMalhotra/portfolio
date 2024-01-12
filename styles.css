@@ -652,10 +652,11 @@ textarea {
 .imgBox img {
     max-width: 100px;
     margin: 0px 50px;
+    transition: 0.3s;
 }
 
 .imgBox img:hover {
-    scale: 1.5;
+    scale: 1.2;
 }
 
 
