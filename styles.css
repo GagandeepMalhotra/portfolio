@@ -589,9 +589,9 @@ textarea {
 .scroll {
     position: relative;
     display: flex;
-    width: 700px;
+    width: 100%;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent)
+    background-color: #333;
 }
 
 .scroll div {
