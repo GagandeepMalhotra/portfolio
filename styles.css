@@ -587,14 +587,16 @@ textarea {
 }
 
 #scrolling-container {
+    background-color: #949393;
     display: flex;
     width: 500%; /* Five times the width of the viewport to accommodate five images */
-    animation: scrollAnimation 15s linear infinite;
+    animation: scrollAnimation 5s linear infinite;
+    padding: 0 5px;
 }
 
 .scrolling-item {
     flex: 1;
-    width: 100%;
+    width: calc(20% - 10px);
     box-sizing: border-box;
 }
 
