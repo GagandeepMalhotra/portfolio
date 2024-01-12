@@ -599,7 +599,7 @@ textarea {
     white-space: nowrap;
     animation: scroll var(--time) linear infinite;
     animation-delay: calc(var(--time)*-1);
-    padding: 50px 0px;
+    padding: 66px 0px;
 }
 
 .scroll div:nth-child(2) {
@@ -651,7 +651,7 @@ textarea {
 
 .imgBox img {
     max-width: 100px;
-    scale: 0.8;
+    margin: 0px 50px;
 }
 
 
