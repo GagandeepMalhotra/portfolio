@@ -569,6 +569,40 @@ textarea {
     border-color: inherit;
 }
 
+@keyframes infiniteScroll {
+    from {
+      transform: translateX(0)
+    }
+  
+    to {
+      transform: translateX(-50%)
+    }
+  }
+  
+  .container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .horizontal-scrolling-items {
+    display: flex;
+    width: 2600px; /* Adjust the width according to the total width of your images */
+    animation-name: infiniteScroll;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .horizontal-scrolling-items_item {
+    white-space: nowrap;
+  }
+  
+  .horizontal-scrolling-items_item img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+
 /* Animation keyframes */
 @keyframes typing {
     from {
