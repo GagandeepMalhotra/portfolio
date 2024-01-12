@@ -654,6 +654,10 @@ textarea {
     margin: 0px 50px;
 }
 
+.imgBox img:hover {
+    scale: 1.5;
+}
+
 
 @media (max-width: 1400px) {
     .description-container {
