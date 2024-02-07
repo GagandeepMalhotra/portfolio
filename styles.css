@@ -374,7 +374,7 @@ textarea {
     scale: 1.05; /* Adjusted hover background color */
 }
 
-.project-link:before {
+.project-link::after {
     content: "";
     position: absolute;
     top: 0;
@@ -385,10 +385,6 @@ textarea {
     background-position: right center; /* Adjust the position of the image */
     background-size: auto 15px; /* Adjust the size of the image */
     background-image: url('images/link.png');
-}
-
-.project-link{
-    /*background-image: url(images/link.png);*/
 }
 
 
@@ -869,6 +865,7 @@ textarea {
     border-radius: 8px;
     background: rgba(0, 97, 5, 0);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .js-background{
@@ -886,6 +883,7 @@ textarea {
     border-radius: 8px;
     background: rgba(255, 242, 0, 0);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .c-background{
@@ -903,6 +901,7 @@ textarea {
     border-radius: 8px;
     background: rgba(148, 0, 181, 0);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 @media screen and (min-width:1000px) {
