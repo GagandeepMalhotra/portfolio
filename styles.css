@@ -792,7 +792,7 @@ textarea {
 }
 
 .github {
-    background-color: black !important;
+    background-color: #111 !important;
 }
 
 .github:hover {
@@ -808,11 +808,11 @@ textarea {
 }
 
 .document {
-    background-color: #00356e  !important;
+    background-color: #314d6b  !important;
 }
 
 .document:hover {
-    background-color: #1a4778  !important;
+    background-color: #3a546f  !important;
 }
 
 .youtube{
@@ -824,19 +824,19 @@ textarea {
 }
 
 .tool{
-    background-color: rgb(64, 64, 64) !important;
+    background-color: rgb(89, 89, 89) !important;
 }
 
 .tool:hover{
-    background-color: rgb(79, 79, 79) !important;
+    background-color: rgb(95, 95, 95) !important;
 }
 
 .game{
-    background-color: rgb(53, 88, 1) !important;
+    background-color: rgb(145 110 165) !important;
 }
 
 .game:hover{
-    background-color: rgb(60, 100, 0) !important;
+    background-color: rgb(154, 120, 173) !important;
 }
 
 
