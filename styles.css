@@ -374,7 +374,22 @@ textarea {
     scale: 1.05; /* Adjusted hover background color */
 }
 
+.project-link:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -7.5px; /* Adjust the value to control the part of the image inside the <li> */
+    width: 20px; /* Adjust the width of the image */
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: right center; /* Adjust the position of the image */
+    background-size: auto 15px; /* Adjust the size of the image */
+    background-image: url('images/link.png');
+}
 
+.project-link{
+    /*background-image: url(images/link.png);*/
+}
 
 
 @media (min-width: 771px) {
@@ -839,6 +854,56 @@ textarea {
     background-color: rgb(95, 142, 101) !important;
 }
 
+.python-background{
+    background: url("images/background3.gif");
+    background-size: cover;
+}
+
+.python-background::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position the overlay */
+    top: 0; /* Stretch the overlay to cover the entire container */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(0, 97, 5, 0);
+    backdrop-filter: blur(10px);
+}
+
+.js-background{
+    background: url("images/background3.gif");
+    background-size: cover;
+}
+
+.js-background::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position the overlay */
+    top: 0; /* Stretch the overlay to cover the entire container */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 242, 0, 0);
+    backdrop-filter: blur(10px);
+}
+
+.c-background{
+    background: url("images/background3.gif");
+    background-size: cover;
+}
+
+.c-background::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position the overlay */
+    top: 0; /* Stretch the overlay to cover the entire container */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(148, 0, 181, 0);
+    backdrop-filter: blur(10px);
+}
 
 @media screen and (min-width:1000px) {
     .box-container {
