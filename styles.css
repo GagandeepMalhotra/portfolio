@@ -864,8 +864,6 @@ textarea {
     height: 100%;
     border-radius: 8px;
     background: rgba(0, 97, 5, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .js-background{
@@ -882,8 +880,6 @@ textarea {
     height: 100%;
     border-radius: 8px;
     background: rgba(255, 242, 0, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .c-background{
@@ -900,8 +896,6 @@ textarea {
     height: 100%;
     border-radius: 8px;
     background: rgba(148, 0, 181, 0);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 @media screen and (min-width:1000px) {
