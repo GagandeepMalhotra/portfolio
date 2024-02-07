@@ -379,7 +379,7 @@ textarea {
     position: absolute;
     top: 0;
     right: -7.5px; /* Adjust the value to control the part of the image inside the <li> */
-    width: 20px; /* Adjust the width of the image */
+    width: 15px; /* Adjust the width of the image */
     height: 100%;
     background-repeat: no-repeat;
     background-position: right center; /* Adjust the position of the image */
