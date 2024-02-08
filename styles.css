@@ -704,6 +704,7 @@ textarea {
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+
 }
 
 .flip-box:hover .flip-box-front {
@@ -714,6 +715,21 @@ textarea {
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
+
+@media (hover: none) {
+    .flip-box-front::after{
+        content: ''; /* Add content for pseudo-element */
+        position: absolute; /* Position the image absolutely */
+        bottom: 10px; /* Adjust the distance from the bottom */
+        right: 10px; /* Adjust the distance from the right */
+        width: 32px; /* Adjust the width of the image */
+        height: 38px; /* Adjust the height of the image */
+        background-image: url('images/hover-hand.png'); /* Add your image URL */
+        background-size: cover;
+        background-position: center;
+    }
+}
+
 
 .flip-box-back {
     position: absolute;
@@ -917,6 +933,9 @@ textarea {
     }
     .flip-box-front .inner{
         padding: 60px;
+    }
+    .flip-box-front::after{
+        background-image: none;
     }
 
     .scroll div{
