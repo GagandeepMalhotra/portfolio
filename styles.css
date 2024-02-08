@@ -772,6 +772,7 @@ textarea {
 
 .flip-box-header {
     font-size: 30px;
+    text-shadow: 5px 5px 10px black;
 }
 
 .flip-box p {
@@ -851,8 +852,11 @@ textarea {
 }
 
 .python-background{
-    background: url("images/background3.gif");
-    background-size: cover;
+    background: linear-gradient(135deg, #4B8BBE 0%, #0a528d 25%, #000000 50%, #9b7900 75%, #FFD43B 100%)
+}
+
+.python-background-back{
+    background: linear-gradient(225deg, #21516e 0%, #05345a 25%, #222 50%, #6c5500 75%, #ffd43b 100%);
 }
 
 .python-background::before {
@@ -867,8 +871,11 @@ textarea {
 }
 
 .js-background{
-    background: url("images/background3.gif");
-    background-size: cover;
+    background: linear-gradient(135deg, #F0DB4F 0%, #F0DB4F 25%, #dbbf00 50%, #695b00 75%, black 100%)
+}
+
+.js-background-back{
+    background: linear-gradient(225deg, #b0a34a 0%, #b0a34a 25%, #a18700 50%, #544900 75%, #000000 100%);
 }
 
 .js-background::before {
@@ -883,8 +890,11 @@ textarea {
 }
 
 .c-background{
-    background: url("images/background3.gif");
-    background-size: cover;
+    background: linear-gradient(135deg, #89236f 0%, #b565a1 25%, #d174ba 50%, #a5519a 75%, #660067 100%)
+}
+
+.c-background-back{
+    background: linear-gradient(225deg, #4e1752 0%, #7f3b73 25%, #9a479b 50%, #7b3d7d 75%, #3f0040 100%);
 }
 
 .c-background::before {
