@@ -716,20 +716,6 @@ textarea {
     transform-style: preserve-3d;
 }
 
-@media (hover: none) {
-    .flip-box-front::after{
-        content: ''; /* Add content for pseudo-element */
-        position: absolute; /* Position the image absolutely */
-        bottom: 10px; /* Adjust the distance from the bottom */
-        right: 10px; /* Adjust the distance from the right */
-        width: 32px; /* Adjust the width of the image */
-        height: 38px; /* Adjust the height of the image */
-        background-image: url('images/hover-hand.png'); /* Add your image URL */
-        background-size: cover;
-        background-position: center;
-    }
-}
-
 
 .flip-box-back {
     position: absolute;
@@ -763,7 +749,6 @@ textarea {
     -webkit-perspective: inherit;
     perspective: inherit;
     z-index: 2;
-
     transform: translateY(-50%) translateZ(60px) scale(.94);
     -webkit-transform: translateY(-50%) translateZ(60px) scale(.94);
     -ms-transform: translateY(-50%) translateZ(60px) scale(.94);
@@ -922,6 +907,31 @@ textarea {
     height: 100%;
     border-radius: 8px;
     background: rgba(148, 0, 181, 0);
+}
+
+@media (hover: none) {
+    .flip-box-front::after{
+        content: ''; /* Add content for pseudo-element */
+        position: absolute; /* Position the image absolutely */
+        bottom: 10px; /* Adjust the distance from the bottom */
+        right: 10px; /* Adjust the distance from the right */
+        width: 32px; /* Adjust the width of the image */
+        height: 38px; /* Adjust the height of the image */
+        background-image: url('images/hover-hand.png'); /* Add your image URL */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .project-link::after {
+        background-image: none;
+    }
+
+    .project-link {
+        background-repeat: no-repeat;
+        background-position: right center; /* Adjust the position of the image */
+        background-size: auto 15px; /* Adjust the size of the image */
+        background-image: url('images/link.png');
+    }
 }
 
 @media screen and (min-width:1000px) {
