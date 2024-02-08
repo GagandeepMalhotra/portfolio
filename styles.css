@@ -872,7 +872,7 @@ textarea {
 }
 
 .js-background{
-    background: linear-gradient(135deg, #F0DB4F 0%, #F0DB4F 25%, #dbbf00 50%, #695b00 75%, black 100%)
+    background: linear-gradient(135deg, #F0DB4F 0%, #F0DB4F 25%, #c3aa00 50%, #695b00 75%, black 100%)
 }
 
 .js-background-back{
@@ -891,7 +891,7 @@ textarea {
 }
 
 .c-background{
-    background: linear-gradient(135deg, #89236f 0%, #b565a1 25%, #d174ba 50%, #a5519a 75%, #660067 100%)
+    background: linear-gradient(135deg, #660067  0%, #ab1998 25%, #c3329f 50%, #ab1998 75%, #660067 100%)
 }
 
 .c-background-back{
