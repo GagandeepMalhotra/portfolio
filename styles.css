@@ -33,7 +33,7 @@ textarea {
 .main-title {
     padding: 25px 0px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5), 0px -4px 8px rgba(0, 0, 0, 0.5);
-    background-color: #111111;
+    background-color: rgb(10, 10, 10);
     width: 100%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     top: 45%;
@@ -72,7 +72,7 @@ textarea {
 
 .position-relative {
     width: 100%;
-    height: calc(100vh - 86px);
+    height: calc(90vh - 86px);
     min-height: 750px;
     overflow: hidden;
 }
@@ -95,10 +95,9 @@ textarea {
     text-transform: uppercase;
 }
 
-
-
 .container-fluid {
     margin-top: 85px;
+    box-shadow: inset 0px -50px 100px 0px rgb(0, 0, 0);
 }
 
 .footer {
@@ -115,13 +114,12 @@ textarea {
     top: 0;
     width: 110%;
     left: -5%;
-    height: 150%;
-    background-image: url('/images/background.jpg');
+    height: 200%;
+    background-image: url('/images/bg.jpg');
     background-size: cover;
     animation: scrollBg 20s linear infinite;
     z-index: -1;
-    padding-bottom: 40%;
-    filter: brightness(50%) blur(4px)url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
+    filter: brightness(66%) blur(2px)url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
 }
 
 @keyframes scrollBg {
