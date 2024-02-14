@@ -37,7 +37,7 @@ textarea {
     width: 100%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     top: 45%;
-    min-height: 280px;
+    min-height: px;
 }
 
 .navbar {
@@ -79,6 +79,7 @@ textarea {
     position: relative;
     box-shadow:inset 0px 11px 28px -5px #000000,
     inset 0px -11px 28px -5px #000000;
+    margin-top: 43px;
 }
 
 .position-relative-middle {
