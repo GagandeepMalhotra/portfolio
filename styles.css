@@ -607,7 +607,7 @@ textarea {
 .typewriter::after {
     content: "";
     border-right: 0;
-    animation: typing 1s steps(40) infinite;
+    animation: typing 0.5s steps(40) infinite;
 }
 
 .typewriter.typing::after {
