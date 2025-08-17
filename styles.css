@@ -72,7 +72,7 @@ textarea {
 .position-relative, .position-relative-middle {
     width: 100%;
     height: calc(70vh - 86px);
-    min-height: 750px;
+    min-height: 500px;
     overflow: hidden;
     position: relative;
     box-shadow:inset 0px 11px 28px -5px #000000,
