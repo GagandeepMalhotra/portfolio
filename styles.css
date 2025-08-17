@@ -31,20 +31,17 @@ textarea {
 }
 
 .main-title {
-    padding: 25px 0px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5), 0px -4px 8px rgba(0, 0, 0, 0.5);
-    background-color: rgb(10, 10, 10);
     width: 100%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    top: 45%;
-    min-height: px;
+    text-shadow: 2px 2px 9px rgba(0, 0, 0, 0.8);
+    top: 48%;
 }
+
 
 .navbar {
     top: 0;
     z-index: 999;
     width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
 }
 
 .navbar img {
@@ -52,12 +49,13 @@ textarea {
 }
 
 .nav-link {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: #fff !important;
 }
 
 .nav-link:hover {
-    color: #111 !important;
+    color: #ddd !important;
 }
 
 .content {
@@ -73,13 +71,13 @@ textarea {
 
 .position-relative, .position-relative-middle {
     width: 100%;
-    height: calc(100vh - 86px);
+    height: calc(70vh - 86px);
     min-height: 750px;
     overflow: hidden;
     position: relative;
     box-shadow:inset 0px 11px 28px -5px #000000,
     inset 0px -11px 28px -5px #000000;
-    margin-top: 43px;
+    /*margin-top: 43px;*/
 }
 
 .position-relative-middle {
@@ -120,7 +118,7 @@ textarea {
     background-size: cover;
     animation: scrollBg 20s linear infinite;
     z-index: -1;
-    filter: brightness(50%) blur(0px) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
+    filter: brightness(20%) blur(4px) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');
 }
 
 .bg-middle {
@@ -258,7 +256,7 @@ textarea {
 }
 
 .socials {
-    margin-top: 10px;
+    margin-top: 20px;
     display: inline-flex;
 }
 
@@ -272,7 +270,8 @@ textarea {
     text-decoration: none;
     font-size: 40px;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .socials a:hover {
