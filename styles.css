@@ -44,6 +44,13 @@ textarea {
     /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
 }
 
+.navbar.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* same as Bootstrap fixed-top */
+}
+
 .navbar-toggler {
     background-color: #ffffff50 !important;
     -webkit-filter: invert(100%);
@@ -77,7 +84,7 @@ textarea {
 .position-relative, .position-relative-middle {
     width: 100%;
     height: calc(70vh - 86px);
-    min-height: 500px;
+    min-height: 700px;
     overflow: hidden;
     position: relative;
     box-shadow:inset 0px 11px 28px -5px #000000,

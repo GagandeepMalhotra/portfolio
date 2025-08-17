@@ -47,7 +47,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="hamburger">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="text-align: right;">
             <ul class="navbar-nav">
                 <!--
                 <li class="nav-item">
@@ -1579,9 +1579,9 @@
             var allContainer = document.querySelector('.all-container');
             if (hamburger.classList.contains('collapsed')) {
                 allContainer.style.marginTop = '0px';
-            } else {
-                allContainer.style.marginTop = '165px';
-            }
+            } //else {
+                //allContainer.style.marginTop = '165px';
+            //}
         }
     </script>
 
