@@ -1,6 +1,6 @@
 body {
     height: 100%;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 h2 {
@@ -353,7 +353,7 @@ textarea {
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 100px 50px;
 }
 
@@ -365,6 +365,9 @@ textarea {
     transition: 0.3s !important;
 }
 
+.project-content h3{
+    font-size: 20px;
+}
 .project-list {
     list-style-type: none;
     padding: 0;
@@ -424,7 +427,7 @@ textarea {
 }
 
 .project-content {
-    text-align: center;
+    text-align: left;
     padding: 20px 20px 0 20px;
 }
 
