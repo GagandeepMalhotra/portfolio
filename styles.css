@@ -4,7 +4,8 @@ body {
 }
 
 h2 {
-    margin-bottom: 100px !important;
+    margin-bottom: 50px !important;
+    font-size: 133px !important;
 }
 
 @viewport {
@@ -365,9 +366,10 @@ textarea {
     transition: 0.3s !important;
 }
 
-.project-content h3{
+.project-content h3 {
     font-size: 20px;
 }
+
 .project-list {
     list-style-type: none;
     padding: 0;
@@ -649,9 +651,8 @@ textarea {
 }
 
 .pop-up {
-    opacity: 0;
     transform: translateY(250px);
-    transition: opacity 0.5s, transform 0.5s;
+    transition: transform 0.4s;
 }
 
 .pop-up.animate {
@@ -732,7 +733,7 @@ textarea {
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     color: #fff;
 }
@@ -1161,12 +1162,29 @@ textarea {
         height: 459px;
         padding: 60px
     }
+
+    h2 {
+        font-size: 12vw !important;
+        text-align: center !important;
+    }
 }
 
 @media (max-width: 768px) {
     .description-column {
         height: 340px;
         padding: 50px
+    }
+}
+
+@media (max-width: 725px) {
+    .gagan {
+        font-size: 14vw !important;
+    }
+}
+
+@media (max-width: 645px) {
+    h2 {
+        font-size: 14vw !important;
     }
 }
 
@@ -1188,7 +1206,7 @@ textarea {
 
 @media (max-width: 490px) {
     .typewriter {
-        font-size: 250% !important;
+        font-size: 14vw !important;
     }
 }
 
@@ -1201,12 +1219,6 @@ textarea {
 
     .dropdown select {
         width: 100%;
-    }
-}
-
-@media (max-width: 420px) {
-    .typewriter {
-        font-size: 200% !important;
     }
 }
 
