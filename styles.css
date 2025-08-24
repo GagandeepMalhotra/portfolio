@@ -182,48 +182,6 @@ textarea {
     }
 }
 
-.air {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
-    background-size: 1000px 100px
-}
-
-.air.air1 {
-    animation: wave 30s linear infinite;
-    z-index: 1000;
-    opacity: 1;
-    animation-delay: 0s;
-    bottom: 0;
-}
-
-.air.air2 {
-    animation: wave2 15s linear infinite;
-    z-index: 999;
-    opacity: 0.5;
-    animation-delay: -5s;
-    bottom: 10px;
-}
-
-.air.air3 {
-    animation: wave 30s linear infinite;
-    z-index: 998;
-    opacity: 0.2;
-    animation-delay: -2s;
-    bottom: 15px;
-}
-
-.air.air4 {
-    animation: wave2 7.5s linear infinite;
-    z-index: 997;
-    opacity: 0.7;
-    animation-delay: -5s;
-    bottom: 20px;
-}
-
 @keyframes wave {
     0% {
         background-position-x: 0px;
@@ -482,6 +440,22 @@ textarea {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
+.tag.python::before,
+.tag.tkinter::before,
+.tag.json::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+    top: 2.5px;
+    position: relative;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
 .tag.python {
     color: #fdfdfd;
     background: linear-gradient(150deg,
@@ -489,6 +463,10 @@ textarea {
             #3776AB 30%,
             #b68e00 100%);
     font-weight: 600;
+}
+
+.tag.python::before {
+    background-image: url('/images/py-small.png');
 }
 
 .tag.c {
@@ -783,7 +761,7 @@ textarea {
     position: absolute;
     left: 0;
     width: 100%;
-    padding: 35%;
+    padding: 20%;
     outline: 1px solid transparent;
     -webkit-perspective: inherit;
     perspective: inherit;
@@ -804,6 +782,10 @@ textarea {
     -ms-transform: translateY(0%) translateZ(60px) scale(.94);
     top: 0;
     padding: 30px;
+}
+
+.skill-title {
+    margin-top: 30px;
 }
 
 .flip-box-back .flip-box-header,
@@ -1002,7 +984,7 @@ textarea {
     }
 
     .box-item {
-        width: 300px;
+        width: 400px;
     }
 
     .flip-box-front .inner {

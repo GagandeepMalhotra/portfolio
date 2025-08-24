@@ -78,7 +78,8 @@
             <div id="image-container" class="position-relative">
                 <div class="position-absolute start-50 translate-middle text-center main-title">
                     <h1 class="text-upper text-center" style="color: #fdfdfd; font-size: 1.5rem; line-height: 1.05;">
-                        Welcome to<div class="white typewriter gagan" style="font-size: 100px;">Gagandeep Malhotra's</div>
+                        Welcome to<div class="white typewriter gagan" style="font-size: 100px;">Gagandeep Malhotra's
+                        </div>
                         Portfolio</h1>
                     <div class="socials">
                         <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
@@ -101,10 +102,28 @@
             -->
         </div>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const minWidthQuery = window.matchMedia('(min-width: 1000px)'); // adjust breakpoint
+                console.log('Viewport width:', window.innerWidth, 'Match:', minWidthQuery.matches);
+
+
+                if (minWidthQuery.matches) {
+                    // Only fire the on-load animation if screen is wide enough
+                    document.querySelectorAll('.pop-up-onload').forEach(el => {
+                        // Start hidden
+                        el.classList.remove('animate');
+                        // Trigger animation on next frame
+                        requestAnimationFrame(() => el.classList.add('animate'));
+                    });
+                }
+            });
+        </script>
+
         <div id="description" class="container my-10">
             <h2 class="text-upper black typewriter">Experience</h2>
             <div class="box-container">
-                <div class="box-item pop-up">
+                <div class="box-item pop-up pop-up-onload">
                     <div class="flip-box">
                         <div class="flip-box-front text-center " style="background-color: #591180"> <!-- #3c1053-->
                             <div class="inner-logo color-white">
@@ -131,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-item pop-up">
+                <div class="box-item pop-up pop-up-onload">
                     <div class="flip-box">
                         <div class="flip-box-front text-center" style="background: #33064d">
                             <div class="inner-logo color-white">
@@ -157,7 +176,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-item pop-up">
+                <div class="box-item pop-up pop-up-onload">
                     <div class="flip-box">
                         <div class="flip-box-front text-center " style="background-color: rgb(214, 58, 74)">
                             <div class="inner-logo color-white">
@@ -399,10 +418,9 @@
                     <div class="flip-box">
                         <div class="flip-box-front text-center python-background">
                             <div class="inner color-white">
-                                <h3 class="flip-box-header">Python</h3>
-
                                 <img src="images/python.png" alt="" class="flip-box-img"
                                     style="filter: drop-shadow(5px 5px 5px #222);">
+                                <h3 class="flip-box-header skill-title">Python</h3>
                             </div>
                         </div>
                         <div class="flip-box-back text-center python-background-back">
@@ -439,9 +457,9 @@
                     <div class="flip-box">
                         <div class="flip-box-front text-center js-background">
                             <div class="inner color-white">
-                                <h3 class="flip-box-header">JavaScript</h3>
                                 <img src="images/js.png" alt="" class="flip-box-img"
                                     style="filter: drop-shadow(5px 5px 5px #222);">
+                                <h3 class="flip-box-header skill-title">JavaScript</h3>
                             </div>
                         </div>
                         <div class="flip-box-back text-center js-background-back">
@@ -479,9 +497,9 @@
                     <div class="flip-box">
                         <div class="flip-box-front text-center filter- c-background">
                             <div class="inner color-white">
-                                <h3 class="flip-box-header">C#</h3>
                                 <img src="images/c-sharp.png" alt="" class="flip-box-img"
                                     style="filter: drop-shadow(5px 5px 5px #222);">
+                                <h3 class="flip-box-header skill-title">C#</h3>
                             </div>
                         </div>
                         <div class="flip-box-back text-center c-background-back">
@@ -696,7 +714,6 @@
                         <p>2024</p>
                         <div class="tag-container">
                             <div class="tag python">Python</div>
-                            <div class="tag">Tkinter</div>
                             <div class="tag">JSON</div>
                         </div>
                         <div class="btn-container">
@@ -872,7 +889,6 @@
                             <div class="tag python">Python</div>
                             <div class="tag">TensorFlow</div>
                             <div class="tag">MediaPipe</div>
-                            <div class="tag">Tkinter</div>
                         </div>
 
                         <div class="two-buttons">
@@ -998,7 +1014,6 @@
                         <p>2023</p>
                         <div class="tag-container">
                             <div class="tag python">Python</div>
-                            <div class="tag">Tkinter</div>
                             <div class="tag">Google Speech-to-Text API</div>
                         </div>
                         <div class="btn-container">
@@ -1045,7 +1060,6 @@
                         <p>2023</p>
                         <div class="tag-container">
                             <div class="tag python">Python</div>
-                            <div class="tag">Tkinter</div>
                         </div>
                         <div class="btn-container">
                             <a href="https://github.com/GagandeepMalhotra/Youtube-Meta-Scraper">
