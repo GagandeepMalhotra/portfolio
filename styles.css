@@ -438,11 +438,43 @@ textarea {
     border-radius: 4px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    color: #fdfdfd;
+    transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+    will-change: transform;
+    transform: scale(1);
+    transform-origin: center center;
+    box-sizing: border-box;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+    .tag:hover {
+        transform: scale(1.04);
+    }
+}
+
+/* Mobile tap */
+@media (hover: none) and (pointer: coarse) {
+    .tag:active {
+        transform: scale(1.04);
+    }
 }
 
 .tag.python::before,
-.tag.tkinter::before,
-.tag.json::before {
+.tag.mediapipe::before,
+.tag.js::before,
+.tag.html::before,
+.tag.css::before,
+.tag.c::before,
+.tag.unity::before,
+.tag.tf::before,
+.tag.goog::before,
+.tag.dr::before,
+.tag.ts::before,
+.tag.ns::before,
+.tag.mysql::before,
+.tag.stripe::before {
     content: "";
     display: inline-block;
     width: 17px;
@@ -457,12 +489,10 @@ textarea {
 }
 
 .tag.python {
-    color: #fdfdfd;
     background: linear-gradient(150deg,
             #3776AB 0%,
             #3776AB 30%,
             #b68e00 100%);
-    font-weight: 600;
 }
 
 .tag.python::before {
@@ -470,33 +500,110 @@ textarea {
 }
 
 .tag.c {
-    color: #fdfdfd;
     background: #68217A;
-    font-weight: 600;
+}
+
+.tag.c::before {
+    background-image: url('/images/c-small.png');
 }
 
 .tag.js {
-    color: #fdfdfd;
-    background: #bea800;
-    font-weight: 600;
+    background: #ceba26;
+}
+
+.tag.js::before {
+    background-image: url('/images/js-small.png');
+    width: 15px;
+    height: 15px;
 }
 
 .tag.html {
-    color: #fdfdfd;
     background: #E34F26;
-    font-weight: 600;
+}
+
+.tag.html::before {
+    background-image: url('/images/html-small.png');
 }
 
 .tag.css {
-    color: #fdfdfd;
     background: #1572B6;
-    font-weight: 600;
+}
+
+.tag.css::before {
+    background-image: url('/images/css-small.png');
 }
 
 .tag.unity {
-    color: #fdfdfd;
-    background: #252525;
-    font-weight: 600;
+    background: #1a1a1a;
+}
+
+.tag.unity::before {
+    background-image: url('/images/unity-small.png');
+}
+
+.tag.tf {
+    background-color: #ec8d1e;
+}
+
+.tag.tf::before {
+    background-image: url('/images/tf-small.png');
+}
+
+.tag.mediapipe {
+    background-color: #1c6f79;
+}
+
+.tag.mediapipe::before {
+    background-image: url('/images/mp-small.png');
+}
+
+.tag.goog {
+    background-color: #168ec5;
+}
+
+.tag.goog::before {
+    background-image: url('/images/goog-small.png');
+}
+
+.tag.dr {
+    background: linear-gradient(180deg,
+            #2A3E66 0%,
+            /* medium navy */
+            #1F2F50 100%
+            /* darker navy */
+        );
+}
+
+.tag.dr::before {
+    background-image: url('/images/dr-small.png');
+}
+
+.tag.ts {
+    background: #3178C6;
+}
+.tag.ts::before {
+    background-image: url('/images/ts-small.png');
+}
+
+.tag.ns {
+    background: #000000;
+}
+.tag.ns::before {
+    background-image: url('/images/nextjs-small.png');
+}
+
+.tag.mysql {
+    background: #4479A1;
+}
+.tag.mysql::before {
+    background-image: url('/images/mysql-small.png');
+}
+
+.tag.stripe {
+    background: #635bff;
+}
+.tag.stripe::before {
+    background-image: url('/images/stripe-small.png');
 }
 
 .tag-container {
