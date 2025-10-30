@@ -307,9 +307,148 @@ textarea {
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 100px 50px;
 }
+
+/* Position the stack at top-right of project image */
+.project .carousel {
+    position: relative;
+}
+
+/* Smooth short gradient from top-right corner to transparent */
+.project .carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 25px 25px 0 0; /* matches your image corners */
+
+  background: radial-gradient(
+    circle at top right,           /* focus darkness in top-right corner */
+    rgba(0, 0, 0, 0.50) 0%,        /* darkest point */
+    rgba(0, 0, 0, 0.30) 5%,       /* quick falloff */
+    rgba(0, 0, 0, 0.15) 10%,       /* fading fast */
+    rgba(0, 0, 0, 0.05) 15%,
+    rgba(0, 0, 0, 0) 20%           /* transparent by 40% radius */
+  );
+
+  mix-blend-mode: multiply;        /* softens integration with image */
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+.project-icons.icons-top-right {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    z-index: 3;
+}
+
+/* Each pill button */
+.project-icons .icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 55px;
+    max-width: 55px;
+    border-radius: 99px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 35px;
+    line-height: 1;
+    padding: 0 0 0 14px;
+    width: auto;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    transition: max-width 0.5s ease, background-color 0.5s ease, transform 0.5s, filter 0.3s;
+}
+
+.project-icons .youtube {
+    padding: 0 8px 0 16px;
+    gap: 8px;
+}
+.project-icons .document {
+    padding: 0 13px 0 18px;
+    gap: 15px;
+}
+
+/* Individual icon padding + spacing */
+.project-icons .gamepad {
+  padding: 0 5px 0 16px;  /* slightly wider icon shape */
+  gap: 10px;
+  background-color:  #1f8f4e;
+}
+
+.project-icons .github {
+  padding: 0 10px 0 17px;
+  gap: 12px;
+}
+
+.project-icons .website {
+  padding: 0 10px 0 16px;
+  gap: 10px;
+}
+
+.project-icons .tool {
+  padding: 0 9px 0 18px;
+  gap: 13px;
+}
+
+.icon.youtube:hover,
+.icon.document:hover,
+.icon.gamepad:hover,
+.icon.github:hover,
+.icon.website:hover,
+.icon.tool:hover {
+  filter: brightness(1.05);
+}
+
+/* reveal label smoothly on hover/focus */
+.project-icons .icon:hover,
+.project-icons .icon:focus-visible,
+.project-icons .icon:hover span {
+    max-width: 300px;
+    /* large enough to accommodate your longest label */
+    transform: scale(1.03);
+
+}
+
+/* label styling */
+.project-icons .icon .icon-label {
+    white-space: nowrap;
+    color: #fff;
+}
+
+.project-icons span {
+    font-size: 16px;
+}
+
+/* Year badge bottom-left of project image */
+.project-year {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 15px;
+  color: #ddd;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  pointer-events: none; /* avoids blocking carousel clicks */
+  z-index: 3;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 
 .project {
     background-color: #fdfdfd;
@@ -317,10 +456,17 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     position: relative;
     transition: 0.3s !important;
+    overflow: hidden;
 }
 
 .project-content h3 {
     font-size: 20px;
+    margin-bottom: 12.5px;
+    /*min-height: 48px;*/
+}
+
+.project-content .btn-container {
+    display: none;
 }
 
 .project-list {
@@ -383,7 +529,7 @@ textarea {
 
 .project-content {
     text-align: left;
-    padding: 20px 20px 0 20px;
+    padding: 17.5px 17.5px 0 17.5px;
 }
 
 .project a {
@@ -395,6 +541,16 @@ textarea {
 .carousel-control-next-icon {
     -webkit-filter: drop-shadow(2px 2px 2px #111111);
     filter: drop-shadow(2px 2px 2px #111111);
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 7.5% !important;
+    opacity: 0.25 !important;
+    bottom: 20px !important;
+    align-items: end !important;
 }
 
 .section-box {
@@ -508,7 +664,8 @@ textarea {
 }
 
 .tag.js {
-    background: #ceba26;
+    background: #edd100;
+    color: #f9f9f9;
 }
 
 .tag.js::before {
@@ -581,6 +738,7 @@ textarea {
 .tag.ts {
     background: #3178C6;
 }
+
 .tag.ts::before {
     background-image: url('/images/ts-small.png');
 }
@@ -588,6 +746,7 @@ textarea {
 .tag.ns {
     background: #000000;
 }
+
 .tag.ns::before {
     background-image: url('/images/nextjs-small.png');
 }
@@ -595,6 +754,7 @@ textarea {
 .tag.mysql {
     background: #4479A1;
 }
+
 .tag.mysql::before {
     background-image: url('/images/mysql-small.png');
 }
@@ -602,12 +762,13 @@ textarea {
 .tag.stripe {
     background: #635bff;
 }
+
 .tag.stripe::before {
     background-image: url('/images/stripe-small.png');
 }
 
 .tag-container {
-    margin-bottom: 90px;
+    margin-bottom: 17.5px;
 }
 
 .btn-container button,
@@ -1085,37 +1246,6 @@ textarea {
     }
 }
 
-@media screen and (min-width:1000px) {
-    .box-container {
-        flex-direction: row
-    }
-
-    .box-item {
-        width: 400px;
-    }
-
-    .flip-box-front .inner {
-        padding: 60px;
-    }
-
-    .flip-box-front::after {
-        background-image: none;
-    }
-
-    .scroll div {
-        padding: 50px 25%;
-    }
-
-    .scroll div img {
-        max-width: 90px;
-        transition: 0.3s;
-    }
-
-    .flip-box .inner-logo {
-        padding: 50px;
-    }
-}
-
 @media screen and (min-width:998px) {
     .main-title {
         min-height: auto;
@@ -1174,12 +1304,53 @@ textarea {
     margin-left: -45px;
 }
 
+
+@media screen and (min-width:1400px) {
+    .project-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .box-container {
+        flex-direction: row;
+    }
+
+    .box-item {
+        width: 400px;
+    }
+
+    .flip-box-front .inner {
+        padding: 60px;
+    }
+
+    .flip-box-front::after {
+        background-image: none;
+    }
+
+    .scroll div {
+        padding: 50px 25%;
+    }
+
+    .scroll div img {
+        max-width: 90px;
+        transition: 0.3s;
+    }
+
+    .flip-box .inner-logo {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .project-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1200px) {
     .project-container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
 
 @media (max-width: 992px) {
     h2 {
