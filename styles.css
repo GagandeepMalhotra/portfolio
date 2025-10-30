@@ -549,8 +549,12 @@ textarea {
 .carousel-control-prev {
     width: 7.5% !important;
     opacity: 0.25 !important;
-    bottom: 20px !important;
+    bottom: 15px !important;
     align-items: end !important;
+}
+
+.carousel-control-prev {
+    opacity: 0 !important;
 }
 
 .section-box {
