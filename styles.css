@@ -489,7 +489,7 @@ textarea {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.9);
     /* Semi-transparent white for frosted glass effect */
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s;
     backdrop-filter: blur(10px);
     /* Frosted glass effect */
@@ -976,7 +976,7 @@ textarea {
 .flip-box-back {
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
+    border-radius: 25px;
     min-height: 435px;
     -ms-transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
     transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
@@ -1003,7 +1003,6 @@ textarea {
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-
 
 .flip-box-back {
     position: absolute;
@@ -1307,7 +1306,6 @@ textarea {
     left: 50%;
     margin-left: -45px;
 }
-
 
 @media screen and (min-width:1400px) {
     .project-container {
