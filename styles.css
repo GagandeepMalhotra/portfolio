@@ -65,8 +65,7 @@ textarea {
 }
 
 .nav-link {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding: 3px 20px !important;
     color: #fff !important;
 }
 
@@ -77,12 +76,6 @@ textarea {
 .content {
     min-height: calc(100% - 56px);
     padding-bottom: 60px;
-}
-
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
 .position-relative,
@@ -120,10 +113,6 @@ textarea {
 
 .text-upper {
     text-transform: uppercase;
-}
-
-.footer {
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bg,
@@ -272,6 +261,10 @@ textarea {
     font-size: 22px;
 }
 
+.social-links svg{
+    color: #fdfdfd;
+}
+
 .image-overlay {
     position: relative;
     background-color: #708090;
@@ -296,9 +289,22 @@ textarea {
     text-align: center;
 }
 
+.footer {
+    background-color: #050505;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .footer-content {
     padding-top: 25px;
     padding-bottom: 25px;
+}
+
+.footer-bottom {
+    font-size: 14px;
+    background-color: #050505;
 }
 
 .custom-link {
@@ -462,7 +468,7 @@ textarea {
 
 
 .project {
-    background-color: #151515;
+    background-color: #111;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     position: relative;
@@ -1227,10 +1233,6 @@ textarea {
     display: none;
 }
 
-#contact{
-    color: #fdfdfd !important;
-}
-
 @media (hover: none) {
     .flip-box-front::after {
         content: '';
@@ -1417,4 +1419,123 @@ textarea {
     .description-heading {
         font-size: 29px;
     }
+}
+
+/* Contact section styled like a project card */
+.contact-card {
+    margin: 0 auto;
+}
+
+.contact-card .project-content {
+    padding: 24px;
+}
+
+.contact-card label {
+    color: #ddd;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contact-card .form-control,
+.contact-card textarea {
+    width: 100%;
+    background-color: #111;
+    border: 1px solid #222;
+    color: #fdfdfd;
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card .form-control::placeholder,
+.contact-card textarea::placeholder {
+    color: #aaa;
+}
+
+.contact-card .form-control:focus,
+.contact-card textarea:focus {
+    outline: none;
+    border-color: #444;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+    background-color: #111; /* keep dark on focus */
+    color: #fdfdfd;
+}
+
+.contact-card .contact-submit {
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 14px 20px;
+    border-radius: 14px;
+    color: #ddd; /* match label color */
+}
+
+/* Keep contact card from scaling on hover */
+.contact-card:hover {
+    scale: 1 !important;
+}
+
+@media (min-width: 771px) {
+    .contact-card:hover {
+        scale: 1 !important;
+    }
+}
+
+.contact-card .contact-submit i {
+    color: inherit;
+}
+
+/* Dark scrollbar for message textarea */
+.contact-card #message {
+    scrollbar-color: #333 #111; /* Firefox */
+}
+
+.contact-card #message::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contact-card #message::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.contact-card #message::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 8px;
+    border: 2px solid #111;
+}
+
+.contact-card #message::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+/* Keep dark fields when browser autofills */
+.contact-card input:-webkit-autofill,
+.contact-card input:-webkit-autofill:hover,
+.contact-card input:-webkit-autofill:focus,
+.contact-card textarea:-webkit-autofill,
+.contact-card textarea:-webkit-autofill:hover,
+.contact-card textarea:-webkit-autofill:focus,
+.contact-card select:-webkit-autofill,
+.contact-card select:-webkit-autofill:hover,
+.contact-card select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fdfdfd !important;
+    caret-color: #fdfdfd;
+    -webkit-box-shadow: 0 0 0px 1000px #111 inset;
+    box-shadow: 0 0 0px 1000px #111 inset;
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.contact-card input:-moz-autofill,
+.contact-card textarea:-moz-autofill,
+.contact-card select:-moz-autofill {
+    color: #fdfdfd !important;
+    background-color: #111 !important;
+    box-shadow: 0 0 0 1000px #111 inset;
+}
+
+/* Make hover a touch less bright, keep text color */
+.contact-card .custom-btn:hover,
+.contact-card .contact-submit:hover {
+    background-color: #1a1a1a !important; /* slightly less bright than global */
+    color: #ddd !important; /* keep same text color */
 }

@@ -1526,24 +1526,27 @@
         </div>
         <div id="contact" class="container my-10">
             <h2 class="container text-upper black typewriter">Contact</h2>
-            <form action="https://formspree.io/f/xoqzgkza" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+            <div class="project contact-card">
+                <div class="project-content">
+                    <form action="https://formspree.io/f/xoqzgkza" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group pop-up">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group pop-up">
+                            <label for="message">Message</label>
+                            <textarea class="form-control pop-up" id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn custom-btn pop-up contact-submit">
+                            <i class="fas fa-paper-plane"></i>&ensp;Send Email
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group pop-up">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group pop-up">
-                    <label for="message">Message:</label>
-                    <textarea class="form-control pop-up" id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn custom-btn pop-up"
-                    style="margin-left: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); color: #fdfdfd;">
-                    <i class="fas fa-paper-plane"></i>&ensp;Send Email</button>
-            </form>
-
+            </div>
         </div>
     </div>
 
@@ -1555,28 +1558,23 @@
     </div>
     -->
 
-    <footer class="footer py-5 bg-light">
+    <footer class="footer py-5">
         <div id="contact" class="container text-upper text-center">
-
             <div class="footer-content">
                 <h5>Follow Me</h5>
                 <div class="social-links">
-                    <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i
-                            class="fab fa-linkedin" style="color: #111;"></i></a>
-                    <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"
-                            style="color: #111;"></i></a>
-                    <a href="https://www.youtube.com/@GagandeepMalhotra"><i class="fab fa-youtube"
-                            style="color: #111;"></i></a>
-                    <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"
-                            style="color: #111;"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/gagandeep-malhotra-singh/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/GagandeepMalhotra"><i class="fab fa-github"></i></a>
+                    <a href="https://www.youtube.com/@GagandeepMalhotra"><i class="fab fa-youtube"></i></a>
+                    <a href="mailto:gagandeepmalhotra5671@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div class="footer-bottom bg-dark">
+    <div class="footer-bottom">
         <div class="container text-upper text-center">
-            <p class="text-secondary" style="margin-bottom: 0;">Gagandeep Malhotra - 2025</p>
+            <p class="text-secondary" style="margin-bottom: 0;">Gagandeep Malhotra - <span id="year"></p>
         </div>
     </div>
     <!-- Bootstrap JS -->
@@ -1584,6 +1582,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
         var navbarToggler = document.querySelector('.navbar-toggler');
 
         // Attach click event listener to the button
