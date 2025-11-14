@@ -105,8 +105,6 @@
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const minWidthQuery = window.matchMedia('(min-width: 1000px)'); // adjust breakpoint
-                console.log('Viewport width:', window.innerWidth, 'Match:', minWidthQuery.matches);
-
 
                 if (minWidthQuery.matches) {
                     // Only fire the on-load animation if screen is wide enough
@@ -1529,7 +1527,7 @@
             <div class="project contact-card">
                 <div class="project-content">
                     <form action="https://formspree.io/f/xoqzgkza" method="POST">
-                        <div class="form-group">
+                        <div class="form-group pop-up">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
@@ -1537,7 +1535,7 @@
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
-                        <div class="form-group pop-up">
+                        <div class="form-group pop-up message-group">
                             <label for="message">Message</label>
                             <textarea class="form-control pop-up" id="message" name="message" rows="6" required></textarea>
                         </div>

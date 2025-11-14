@@ -241,7 +241,7 @@ textarea {
 }
 
 .socials a:hover {
-    scale: 1.2;
+    scale: 1.1;
     transition: 0.3s;
 }
 
@@ -290,6 +290,7 @@ textarea {
 }
 
 .footer {
+    color: #858585;
     background-color: #050505;
     position: relative;
     bottom: 0;
@@ -305,6 +306,7 @@ textarea {
 .footer-bottom {
     font-size: 14px;
     background-color: #050505;
+    color: #858585;
 }
 
 .custom-link {
@@ -1428,6 +1430,25 @@ textarea {
 
 .contact-card .project-content {
     padding: 24px;
+}
+
+/* Two-column layout for name/email, stack on small screens */
+.contact-card form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+.contact-card .message-group,
+.contact-card .contact-submit {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+    .contact-card form {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-card label {
