@@ -797,7 +797,7 @@ textarea {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 1px 9px;
+    padding: 2px 9px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -1109,6 +1109,8 @@ textarea {
 
 .typewriter {
     font-size: 200%;
+    color: transparent !important; /* prevent flash of full text before typing */
+    -webkit-text-fill-color: transparent; /* iOS Safari */
 }
 
 .typewriter::after {
@@ -1120,6 +1122,13 @@ textarea {
 .typewriter.typing::after {
     border-right: 0.15em solid;
     border-color: inherit;
+}
+
+/* Reveal text when typing starts or after it has finished */
+.typewriter.typing,
+.typewriter.typed {
+    color: #fdfdfd !important;
+    -webkit-text-fill-color: #fdfdfd;
 }
 
 
