@@ -219,6 +219,46 @@ textarea {
     scale: 1 !important;
 }
 
+/* Glow outline for flip boxes matching their background */
+.flip-box {
+    position: relative;
+    overflow: visible; /* ensure glow outside edges is visible */
+}
+
+.flip-box-front,
+.flip-box-back {
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-box-front::before,
+.flip-box-back::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 8px); /* 4px each side for very tight glow */
+    height: calc(100% + 8px);
+    transform: translate(-50%, -50%);
+    border-radius: calc(25px + 4px); /* match face radius + tight inset */
+    background: inherit; /* use the face's own background color/gradient */
+    filter: blur(8px);
+    opacity: 0.40; /* slightly more faint */
+    transition: opacity 250ms ease-out, filter 300ms ease-out;
+    will-change: opacity, filter;
+    z-index: 0; /* behind the face but above container */
+    pointer-events: none;
+}
+
+/* Optional: a touch stronger on hover */
+.flip-box:hover .flip-box-front::before,
+.flip-box:hover .flip-box-back::before {
+    filter: blur(10px);
+    opacity: 0.50;
+}
+
 .carousel-item .col-md-6 {
     padding-left: 0;
     padding-right: 0;
@@ -227,6 +267,18 @@ textarea {
 .carousel-item img,
 .carousel {
     border-radius: 25px 25px 0 0;
+}
+
+/* Outline for black-background flip boxes (GMTK, Deloitte) matching project outline */
+.black-glow .flip-box-front,
+.black-glow .flip-box-back {
+    border: 1px solid #222;
+    box-sizing: border-box;
+}
+
+.black-glow:hover .flip-box-front,
+.black-glow:hover .flip-box-back {
+    border-color: #2a2a2a;
 }
 
 .carousel-inner {
@@ -485,9 +537,14 @@ textarea {
     background-color: #111;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #222; /* outline similar to filter chips */
     position: relative;
     transition: 0.3s !important;
     overflow: hidden;
+}
+
+.project:hover {
+    border-color: #2a2a2a;
 }
 
 .project-content h3 {
@@ -1376,6 +1433,22 @@ textarea {
     height: 100%;
     border-radius: 8px;
     background: rgba(148, 0, 181, 0);
+}
+
+/* Ensure glow is visible even with skill background ::before overlays */
+.flip-box-front::before,
+.flip-box-back::before {
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    transform: translate(-50%, -50%);
+    border-radius: calc(25px + 4px);
+    background: inherit; /* override any transparent overlays */
+    filter: blur(8px);
+    opacity: 0.40;
+    transition: opacity 250ms ease-out, filter 300ms ease-out;
+    will-change: opacity, filter;
 }
 
 .wide-only {
