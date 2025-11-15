@@ -207,9 +207,11 @@ textarea {
     border-radius: 16px;
     min-width: 0;
     width: 100%;
-    padding: 8px 12px; /* compact y-axis */
+    padding: 8px 12px;
+    /* compact y-axis */
     margin-top: 6px;
-    margin-bottom: 0; /* spacing handled by .sortbar */
+    margin-bottom: 0;
+    /* spacing handled by .sortbar */
     flex-basis: 100%;
     order: 99;
 }
@@ -222,7 +224,8 @@ textarea {
 /* Glow outline for flip boxes matching their background */
 .flip-box {
     position: relative;
-    overflow: visible; /* ensure glow outside edges is visible */
+    overflow: visible;
+    /* ensure glow outside edges is visible */
 }
 
 .flip-box-front,
@@ -239,16 +242,21 @@ textarea {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(100% + 8px); /* 4px each side for very tight glow */
+    width: calc(100% + 8px);
+    /* 4px each side for very tight glow */
     height: calc(100% + 8px);
     transform: translate(-50%, -50%);
-    border-radius: calc(25px + 4px); /* match face radius + tight inset */
-    background: inherit; /* use the face's own background color/gradient */
+    border-radius: calc(25px + 4px);
+    /* match face radius + tight inset */
+    background: inherit;
+    /* use the face's own background color/gradient */
     filter: blur(8px);
-    opacity: 0.40; /* slightly more faint */
+    opacity: 0.40;
+    /* slightly more faint */
     transition: opacity 250ms ease-out, filter 300ms ease-out;
     will-change: opacity, filter;
-    z-index: 0; /* behind the face but above container */
+    z-index: 0;
+    /* behind the face but above container */
     pointer-events: none;
 }
 
@@ -292,13 +300,23 @@ textarea {
 
 .socials a {
     background-color: #fdfdfd;
-    padding: 10px;
+    padding: 0;
+    /* prevent size jump before icons load */
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 50%;
     display: inline-flex;
+    width: 56px;
+    /* reserve space so layout doesn't shift */
+    height: 56px;
+    /* reserve space so layout doesn't shift */
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    /* icon color on white pill */
     text-decoration: none;
-    font-size: 40px;
+    font-size: 28px;
+    /* base icon size; FA SVG scales to em */
     transition: 0.3s;
 
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -307,6 +325,20 @@ textarea {
 .socials a:hover {
     scale: 1.1;
     transition: 0.3s;
+}
+
+.socials svg {
+    font-size: 35px;
+}
+
+/* Hide <i> placeholders until Font Awesome swaps to SVG to avoid flash/jitter */
+.socials i {
+    visibility: hidden;
+}
+
+/* When Font Awesome JS replaces <i> with inline SVG, show it immediately */
+.socials .svg-inline--fa {
+    visibility: visible;
 }
 
 .collapsed {
@@ -325,7 +357,7 @@ textarea {
     font-size: 22px;
 }
 
-.social-links svg{
+.social-links svg {
     color: #fdfdfd;
 }
 
@@ -537,7 +569,8 @@ textarea {
     background-color: #111;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid #222; /* outline similar to filter chips */
+    border: 1px solid #222;
+    /* outline similar to filter chips */
     position: relative;
     transition: 0.3s !important;
     overflow: hidden;
@@ -673,7 +706,8 @@ textarea {
     justify-content: flex-start;
     gap: 12px 10px;
     position: relative;
-    margin-bottom: 20px; /* ensure spacing even when filter is closed */
+    margin-bottom: 20px;
+    /* ensure spacing even when filter is closed */
 }
 
 .sortbar .btn-container,
@@ -710,7 +744,9 @@ textarea {
 /* On narrow screens, keep Randomise + Filter left and push Asc/Desc to the right on the same row.
    Move the Sort dropdown to its own full-width row below. */
 @media (max-width: 640px) {
-    .sortbar .flex-spacer { order: 2; }
+    .sortbar .flex-spacer {
+        order: 2;
+    }
 
     /* Keep toggle on first row to the right */
     .sortbar .toggle-container {
@@ -731,17 +767,20 @@ textarea {
 }
 
 #checkboxes {
-    padding: 2px; /* tighter padding inside card */
+    padding: 2px;
+    /* tighter padding inside card */
     display: flex;
     flex-wrap: wrap;
-    gap: 6px; /* tighter gaps between chips */
+    gap: 6px;
+    /* tighter gaps between chips */
 }
 
 #checkboxes hr {
     border: none;
     border-top: 1px solid #222;
     width: 100%;
-    margin: 4px 0; /* compact separators */
+    margin: 4px 0;
+    /* compact separators */
 }
 
 #checkboxes label.chip {
@@ -762,7 +801,8 @@ textarea {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 10px; /* compact chips */
+    padding: 6px 10px;
+    /* compact chips */
     border-radius: 999px;
     background: #151515;
     color: #ddd;
@@ -779,7 +819,7 @@ textarea {
 }
 
 /* Checked state */
-#checkboxes label.chip input[type="checkbox"]:checked + span {
+#checkboxes label.chip input[type="checkbox"]:checked+span {
     background: #1e1e1e;
     border-color: #3a3a3a;
     color: #fff;
@@ -787,7 +827,7 @@ textarea {
 }
 
 /* Keyboard focus ring */
-#checkboxes label.chip input[type="checkbox"]:focus + span,
+#checkboxes label.chip input[type="checkbox"]:focus+span,
 #checkboxes label.chip span:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
@@ -1109,8 +1149,10 @@ textarea {
 
 .typewriter {
     font-size: 200%;
-    color: transparent !important; /* prevent flash of full text before typing */
-    -webkit-text-fill-color: transparent; /* iOS Safari */
+    color: transparent !important;
+    /* prevent flash of full text before typing */
+    -webkit-text-fill-color: transparent;
+    /* iOS Safari */
 }
 
 .typewriter::after {
@@ -1127,6 +1169,18 @@ textarea {
 /* Reveal text when typing starts or after it has finished */
 .typewriter.typing,
 .typewriter.typed {
+    color: #fdfdfd !important;
+    -webkit-text-fill-color: #fdfdfd;
+}
+
+/* Ensure the main name (.gagan) is fully transparent before typing starts */
+.gagan {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+}
+
+.gagan.typing,
+.gagan.typed {
     color: #fdfdfd !important;
     -webkit-text-fill-color: #fdfdfd;
 }
@@ -1453,7 +1507,8 @@ textarea {
     height: calc(100% + 8px);
     transform: translate(-50%, -50%);
     border-radius: calc(25px + 4px);
-    background: inherit; /* override any transparent overlays */
+    background: inherit;
+    /* override any transparent overlays */
     filter: blur(8px);
     opacity: 0.40;
     transition: opacity 250ms ease-out, filter 300ms ease-out;
@@ -1597,6 +1652,20 @@ textarea {
     }
 }
 
+/* Reserve stable space for the name when it wraps on smaller screens */
+@media (max-width: 1410px) {
+    .gagan {
+        line-height: 1.05; /* match heading line-height */
+        min-height: calc(2 * 1.05em); /* exactly two lines of gagan */
+    }
+}
+
+@media (min-width: 1250px) {
+    .gagan {
+        padding: 0 75px;
+    }
+}
+
 @media (max-width: 1200px) {
     .project-container {
         grid-template-columns: repeat(1, 1fr);
@@ -1708,7 +1777,8 @@ textarea {
     outline: none;
     border-color: #444;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
-    background-color: #111; /* keep dark on focus */
+    background-color: #111;
+    /* keep dark on focus */
     color: #fdfdfd;
 }
 
@@ -1717,7 +1787,8 @@ textarea {
     margin: 10px 0 0 0;
     padding: 14px 20px;
     border-radius: 14px;
-    color: #ddd; /* match label color */
+    color: #ddd;
+    /* match label color */
 }
 
 /* Keep contact card from scaling on hover */
@@ -1737,7 +1808,8 @@ textarea {
 
 /* Dark scrollbar for message textarea */
 .contact-card #message {
-    scrollbar-color: #333 #111; /* Firefox */
+    scrollbar-color: #333 #111;
+    /* Firefox */
 }
 
 .contact-card #message::-webkit-scrollbar {
@@ -1786,6 +1858,8 @@ textarea {
 /* Make hover a touch less bright, keep text color */
 .contact-card .custom-btn:hover,
 .contact-card .contact-submit:hover {
-    background-color: #1a1a1a !important; /* slightly less bright than global */
-    color: #ddd !important; /* keep same text color */
+    background-color: #1a1a1a !important;
+    /* slightly less bright than global */
+    color: #ddd !important;
+    /* keep same text color */
 }
