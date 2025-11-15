@@ -565,26 +565,6 @@
                 <div class="btn-container pop-up"
                     style="float: left; margin-left: 10px; z-index: 100; position: relative;">
                     <button style="text-align: left;" id="filterButton"><i class="fas fa-filter"></i></button>
-                    <div class="filterbar" id="filterbar">
-                        <div id="checkboxes">
-                            <label><input type="checkbox" value="all" onchange="toggleAllCheckboxes(this)"> <span
-                                    id="selectAllText">Select All</span></label>
-                            <hr>
-                            <label><input type="checkbox" value="tools" onchange="filterProjects()"> Tools</label><br>
-                            <label><input type="checkbox" value="games" onchange="filterProjects()"> Games</label><br>
-                            <label><input type="checkbox" value="machine-learning" onchange="filterProjects()"> Machine
-                                Learning</label><br>
-                            <label><input type="checkbox" value="websites" onchange="filterProjects()">
-                                Websites</label><br>
-                            <hr>
-                            <label><input type="checkbox" value="python" onchange="filterProjects()">
-                                Python</label><br>
-                            <label><input type="checkbox" value="javascript" onchange="filterProjects()">
-                                JavaScript</label><br>
-                            <label><input type="checkbox" value="c#" onchange="filterProjects()">
-                                C#</label><br>
-                        </div>
-                    </div>
                 </div>
 
                 <style>
@@ -597,8 +577,9 @@
                     }
                 </style>
 
+                <div class="flex-spacer"></div>
 
-                <div class="btn-container pop-up" style="float: right; margin-left: 10px;">
+                <div class="btn-container pop-up toggle-container" style="float: right; margin-left: 10px;">
                     <button class="toggle-btn" onclick="toggleOrder()">
                         <i class="fa fa-sort-amount-down"></i></button>
                 </div>
@@ -607,6 +588,23 @@
                         <option value="date">Sort: Date</option>
                         <option value="name">Sort: Alphabetically</option>
                     </select>
+                </div>
+                
+
+                <!-- Inline filter card spanning full width of the bar -->
+                <div class="filterbar filter-card" id="filterbar">
+                    <div id="checkboxes">
+                        <label class="chip"><input type="checkbox" value="all" onchange="toggleAllCheckboxes(this)"> <span id="selectAllText">Select All</span></label>
+                        <hr>
+                        <label class="chip"><input type="checkbox" value="tools" onchange="filterProjects()"><span>Tools</span></label>
+                        <label class="chip"><input type="checkbox" value="games" onchange="filterProjects()"><span>Games</span></label>
+                        <label class="chip"><input type="checkbox" value="machine-learning" onchange="filterProjects()"><span>Machine Learning</span></label>
+                        <label class="chip"><input type="checkbox" value="websites" onchange="filterProjects()"><span>Websites</span></label>
+                        <hr>
+                        <label class="chip"><input type="checkbox" value="python" onchange="filterProjects()"><span>Python</span></label>
+                        <label class="chip"><input type="checkbox" value="javascript" onchange="filterProjects()"><span>JavaScript</span></label>
+                        <label class="chip"><input type="checkbox" value="c#" onchange="filterProjects()"><span>C#</span></label>
+                    </div>
                 </div>
 
             </div>
@@ -633,7 +631,7 @@
 
                 function filterProjects() {
                     var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']");
-                    var projectContainers = document.getElementsByClassName("project");
+                    var projectContainers = document.querySelectorAll("#projectContainer .project");
 
                     var selectedCategories = [];
                     for (var i = 1; i < checkboxes.length; i++) {
@@ -644,7 +642,7 @@
 
                     for (var j = 0; j < projectContainers.length; j++) {
                         var project = projectContainers[j];
-                        var projectCategory = project.dataset.category;
+                        var projectCategory = (project.dataset.category || "");
 
                         if (selectedCategories.length === 0 || selectedCategories.some(category => projectCategory.includes(category))) {
                             project.style.display = "block";
@@ -779,7 +777,7 @@
                 </div>
 
                 <div class="project pop-up" data-date="2023-08-05"
-                    data-name="AI Learns to Escape Using Deep Reinforcement Learning"
+                    data-name="Deep Reinforcement Learning"
                     data-category="machine-learning tools games c# python">
                     <div id="mlagents" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -846,7 +844,7 @@
                 </div>
 
                 <div class="project pop-up" data-date="2023-07-05"
-                    data-name="Building a Prototype to Track Eye Gaze Using Machine Learning"
+                    data-name="Prototype to Track Eye Gaze Using Machine Learning"
                     data-category="machine-learning tools python">
                     <div id="eye-tracker" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -1280,7 +1278,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project pop-up" data-date="2020-01-05" data-name="Contemporaneous Cannons - GMTK Game Jam"
+                <div class="project pop-up" data-date="2020-01-05" data-name="Cannons - GMTK Game Jam"
                     data-category="games c#">
                     <div id="cannon" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -1476,7 +1474,7 @@
                     </div>
                 </div>
                 <div class="project pop-up" data-date="2019-06-10"
-                    data-name="Evolution of a Population Using Reinforcement Learning"
+                    data-name="Agent Evolution Using Reinforcement Learning"
                     data-category="machine-learning c#">
                     <div id="evolution" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">

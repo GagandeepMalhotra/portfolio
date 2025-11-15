@@ -199,12 +199,24 @@ textarea {
 }
 
 .filterbar {
-    position: absolute;
-    background-color: #fdfdfd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    border-radius: 0px 4px 4px 4px;
-    min-width: 200px;
+    position: static;
+    background-color: #141414;
+    border: 1px solid #222;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: auto;
+    border-radius: 16px;
+    min-width: 0;
+    width: 100%;
+    padding: 8px 12px; /* compact y-axis */
+    margin-top: 6px;
+    margin-bottom: 0; /* spacing handled by .sortbar */
+    flex-basis: 100%;
+    order: 99;
+}
+
+/* Prevent project hover scale on the filter card */
+.filter-card:hover {
+    scale: 1 !important;
 }
 
 .carousel-item .col-md-6 {
@@ -304,7 +316,7 @@ textarea {
 }
 
 .footer-bottom {
-    font-size: 14px;
+    font-size: 12px;
     background-color: #050505;
     color: #858585;
 }
@@ -598,7 +610,63 @@ textarea {
 }
 
 .sortbar {
-    display: flow-root;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px 10px;
+    position: relative;
+    margin-bottom: 20px; /* ensure spacing even when filter is closed */
+}
+
+.sortbar .btn-container,
+.sortbar .dropdown {
+    float: none !important;
+}
+
+.sortbar .btn-container button,
+.sortbar .toggle-btn {
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background-color: #111;
+    color: #fdfdfd;
+}
+
+.sortbar .btn-container button:hover,
+.sortbar .toggle-btn:hover {
+    background-color: #1a1a1a;
+}
+
+.sortbar .dropdown {
+    position: relative;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Spacer pushes the right controls (toggle + dropdown) to the edge */
+.sortbar .flex-spacer {
+    flex: 1 1 auto;
+}
+
+/* On narrow screens, keep Randomise + Filter left and push Asc/Desc to the right on the same row.
+   Move the Sort dropdown to its own full-width row below. */
+@media (max-width: 640px) {
+    .sortbar .flex-spacer { order: 2; }
+
+    /* Keep toggle on first row to the right */
+    .sortbar .toggle-container {
+        order: 3;
+        margin-left: 0;
+    }
+
+    /* Move dropdown to next row full-width */
+    .sortbar .dropdown {
+        order: 4;
+        margin-left: 0;
+        flex: 1 1 100%;
+    }
 }
 
 .slide {
@@ -606,14 +674,73 @@ textarea {
 }
 
 #checkboxes {
-    padding: 15px;
+    padding: 2px; /* tighter padding inside card */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px; /* tighter gaps between chips */
+}
+
+#checkboxes hr {
+    border: none;
+    border-top: 1px solid #222;
+    width: 100%;
+    margin: 4px 0; /* compact separators */
+}
+
+#checkboxes label.chip {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Hide the native checkbox */
+#checkboxes label.chip input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Visual pill */
+#checkboxes label.chip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px; /* compact chips */
+    border-radius: 999px;
+    background: #151515;
+    color: #ddd;
+    border: 1px solid #222;
+    font-size: 13.5px;
+    line-height: 1.1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+#checkboxes label.chip:hover span {
+    background: #1a1a1a;
+    border-color: #2a2a2a;
+}
+
+/* Checked state */
+#checkboxes label.chip input[type="checkbox"]:checked + span {
+    background: #1e1e1e;
+    border-color: #3a3a3a;
+    color: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Keyboard focus ring */
+#checkboxes label.chip input[type="checkbox"]:focus + span,
+#checkboxes label.chip span:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
 }
 
 .tag {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 2px 8px;
+    padding: 1px 9px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -624,7 +751,7 @@ textarea {
     transform: scale(1);
     transform-origin: center center;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* Desktop hover */
@@ -657,8 +784,8 @@ textarea {
 .tag.stripe::before {
     content: "";
     display: inline-block;
-    width: 17px;
-    height: 17px;
+    width: 13px;
+    height: 13px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -694,8 +821,6 @@ textarea {
 
 .tag.js::before {
     background-image: url('/images/js-small.png');
-    width: 15px;
-    height: 15px;
 }
 
 .tag.html {
@@ -807,6 +932,28 @@ textarea {
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     -webkit-appearance: none;
+}
+
+/* Refined sort dropdown styling within the sort bar */
+.sortbar .dropdown select {
+    background-color: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+    color: #fdfdfd;
+    padding: 10px 36px 10px 14px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sortbar .dropdown select:hover,
+.sortbar .dropdown select:focus {
+    background-color: #1a1a1a;
+    outline: none;
+}
+
+.sortbar .dropdown::after {
+    right: 12px;
+    color: #ddd;
 }
 
 .dropdown::after {
