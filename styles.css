@@ -700,26 +700,6 @@ textarea {
     color: inherit;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    -webkit-filter: drop-shadow(2px 2px 2px #111111);
-    filter: drop-shadow(2px 2px 2px #111111);
-    width: 1rem !important;
-    height: 1rem !important;
-}
-
-.carousel-control-next,
-.carousel-control-prev {
-    width: 7.5% !important;
-    opacity: 0.25 !important;
-    bottom: 15px !important;
-    align-items: end !important;
-}
-
-.carousel-control-prev {
-    opacity: 0 !important;
-}
-
 .section-box {
     background-color: #fdfdfd;
     border-radius: 4px;
