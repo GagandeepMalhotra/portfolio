@@ -93,8 +93,8 @@ textarea {
     min-height: 700px;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0px 11px 28px -5px #000000,
-        inset 0px -11px 28px -5px #000000;
+    box-shadow: inset 0px 11px 28px -5px #111,
+        inset 0px -11px 28px -5px #111;
     /*margin-top: 43px;*/
 }
 
@@ -303,22 +303,46 @@ textarea {
 
 /* Make project images smaller with a light-blue surround on left, top, right */
 .project .carousel-inner {
-    background: linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%); /* sleek dark blue gradient */
+    position: relative;
+    background: transparent; /* gradient moved to blurred layer */
     padding: 12px 12px 0 12px; /* left, top, right only */
     border-radius: 25px 25px 0 0;
+    overflow: visible; /* allow subtle blur edge breathing room */
+}
+
+/* Blurred dark blue gradient surround behind the image */
+.project .carousel-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* cover padded area */
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
+        linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content (image, captions) sit above the blurred layer */
+.project .carousel-inner > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Vary gradient direction per project in a repeating 3-item pattern */
-#projectContainer .project:nth-child(3n+1) .carousel-inner {
-    background: linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+#projectContainer .project:nth-child(3n+1) .carousel-inner::before {
+    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
+        linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
 }
 
-#projectContainer .project:nth-child(3n+2) .carousel-inner {
-    background: linear-gradient(225deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+#projectContainer .project:nth-child(3n+2) .carousel-inner::before {
+    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
+        linear-gradient(225deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
 }
 
-#projectContainer .project:nth-child(3n+3) .carousel-inner {
-    background: linear-gradient(45deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+#projectContainer .project:nth-child(3n+3) .carousel-inner::before {
+    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
+        linear-gradient(45deg, #0a3d8f 0%, #0f5dbf 55%, #083677 100%);
 }
 
 .project .carousel-inner .carousel-item {
@@ -479,21 +503,6 @@ textarea {
     pointer-events: none;
     z-index: 2;
     border-radius: 25px 25px 0 0;
-    /* matches your image corners */
-
-    background: radial-gradient(circle at top right,
-            /* focus darkness in top-right corner */
-            rgba(0, 0, 0, 0.50) 0%,
-            /* darkest point */
-            rgba(0, 0, 0, 0.30) 5%,
-            /* quick falloff */
-            rgba(0, 0, 0, 0.15) 10%,
-            /* fading fast */
-            rgba(0, 0, 0, 0.05) 15%,
-            rgba(0, 0, 0, 0) 20%
-            /* transparent by 40% radius */
-        );
-
     mix-blend-mode: multiply;
     /* softens integration with image */
     transition: opacity 0.4s ease;
@@ -595,8 +604,8 @@ textarea {
 /* Year badge bottom-left of project image */
 .project-year {
     position: absolute;
-    bottom: 12px;
-    left: 15px;
+    bottom: 10px;
+    right: 20px;
     font-size: 15px;
     color: #ddd;
     background: rgba(0, 0, 0, 0.75);
@@ -614,7 +623,6 @@ textarea {
 .project {
     background-color: #111;
     border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     /* outline similar to filter chips */
     position: relative;
     transition: 0.3s !important;
@@ -624,7 +632,7 @@ textarea {
 .project-content h3 {
     font-size: 20px;
     margin-bottom: 12.5px;
-    color: #ddd;
+    color: #fdfdfd;
     /*min-height: 48px;*/
 }
 
@@ -958,7 +966,8 @@ textarea {
 }
 
 .tag.unity {
-    background: #1a1a1a;
+    background: #000000;
+    border: 1px solid #222;
 }
 
 .tag.unity::before {
@@ -1011,7 +1020,8 @@ textarea {
 }
 
 .tag.ns {
-    background: #000000;
+    background: #111;
+    border: 1px solid #222;
 }
 
 .tag.ns::before {
@@ -1454,7 +1464,7 @@ textarea {
 }
 
 .python-background {
-    background: linear-gradient(135deg, #4B8BBE 0%, #0a528d 25%, #000000 50%, #9b7900 75%, #FFD43B 100%)
+    background: linear-gradient(135deg, #4B8BBE 0%, #0a528d 25%, #111 50%, #9b7900 75%, #FFD43B 100%)
 }
 
 .python-background-back {
@@ -1480,7 +1490,7 @@ textarea {
 }
 
 .js-background-back {
-    background: linear-gradient(225deg, #b0a34a 0%, #b0a34a 25%, #a18700 50%, #544900 75%, #000000 100%);
+    background: linear-gradient(225deg, #b0a34a 0%, #b0a34a 25%, #a18700 50%, #544900 75%, #111 100%);
 }
 
 .js-background::before {
@@ -1698,6 +1708,12 @@ textarea {
         font-size: 12vw !important;
         text-align: center !important;
     }
+}
+
+@media (max-width: 767px) {
+    .project-container {
+    grid-gap: 30px 50px;
+}
 }
 
 @media (max-width: 725px) {
