@@ -1,3 +1,11 @@
+
+
+/* Simple outline on contact card to match inputs */
+.project.contact-card,
+.contact-card {
+    border: 1px solid #222;
+    background: #111;
+}
 body {
     height: 100%;
     font-family: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -293,6 +301,44 @@ textarea {
     border-radius: 25px 25px 0 0;
 }
 
+/* Make project images smaller with a light-blue surround on left, top, right */
+.project .carousel-inner {
+    background: linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%); /* sleek dark blue gradient */
+    padding: 12px 12px 0 12px; /* left, top, right only */
+    border-radius: 25px 25px 0 0;
+}
+
+/* Vary gradient direction per project in a repeating 3-item pattern */
+#projectContainer .project:nth-child(3n+1) .carousel-inner {
+    background: linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+}
+
+#projectContainer .project:nth-child(3n+2) .carousel-inner {
+    background: linear-gradient(225deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+}
+
+#projectContainer .project:nth-child(3n+3) .carousel-inner {
+    background: linear-gradient(45deg, #0a3d8f 0%, #0f5dbf 50%, #1a84ee 100%);
+}
+
+.project .carousel-inner .carousel-item {
+    background: transparent !important; /* reveal the light-blue background */
+}
+
+.project .carousel-inner img {
+    display: block;
+    width: 100%;
+    border-radius: 12px 12px 0 0; /* no radius on bottom to meet card edge */
+}
+
+/* Blue glow around project cards (exclude contact card) */
+.project:not(.contact-card) {
+    /* tighter blue halo closely hugging the card */
+    filter: drop-shadow(0 0 10px rgba(88, 168, 255, 0.30))
+            drop-shadow(0 0 4px  rgba(88, 168, 255, 0.18));
+}
+
+
 .socials {
     margin-top: 20px;
     display: inline-flex;
@@ -569,15 +615,10 @@ textarea {
     background-color: #111;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid #222;
     /* outline similar to filter chips */
     position: relative;
     transition: 0.3s !important;
     overflow: hidden;
-}
-
-.project:hover {
-    border-color: #2a2a2a;
 }
 
 .project-content h3 {
@@ -1863,3 +1904,4 @@ textarea {
     color: #ddd !important;
     /* keep same text color */
 }
+
