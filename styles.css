@@ -1305,9 +1305,9 @@ textarea {
     background-position: center;
     border-radius: 25px;
     min-height: 435px;
-    -ms-transition: transform 0.5s cubic-bezier(.4, .2, .2, 1);
-    transition: transform 0.5s cubic-bezier(.4, .2, .2, 1);
-    -webkit-transition: transform 0.5s cubic-bezier(.4, .2, .2, 1);
+    -ms-transition: transform 0.4s cubic-bezier(.4, .2, .2, 1);
+    transition: transform 0.4s cubic-bezier(.4, .2, .2, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(.4, .2, .2, 1);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
