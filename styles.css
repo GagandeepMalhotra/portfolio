@@ -1508,6 +1508,10 @@ textarea {
     bottom: 0;
     left: 50%;
     margin-left: -45px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(1px);
+    transform: translateZ(1px);
 }
 
 @media screen and (min-width:1400px) {
@@ -1786,6 +1790,7 @@ textarea {
 .project-desc-wrapper {
     position: relative;
     overflow: hidden;
+    font-size: 13px;
     max-height: 5.6em; /* 4 lines * 1.4 line-height */
     transition: max-height 0.15s ease-out;
 }
