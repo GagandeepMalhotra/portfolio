@@ -293,10 +293,13 @@ textarea {
 /* Make project images smaller with a light-blue surround on left, top, right */
 .project .carousel-inner {
     position: relative;
-    background: transparent; /* gradient moved to blurred layer */
+    background: transparent;
     padding: 0;
     border-radius: 25px 25px 0 0;
-    overflow: visible; /* allow subtle blur edge breathing room */
+    overflow: hidden; /* enforce clean crop of images */
+    /* Safari fix for top corners bleeding */
+    -webkit-transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 /* Removed .carousel-inner::before background blurs that were bleeding into the title area */
@@ -616,7 +619,6 @@ textarea {
     flex-direction: column;
     /* Safari fix for border-radius + overflow hidden */
     -webkit-transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .project-content h3 {
