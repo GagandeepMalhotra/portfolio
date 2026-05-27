@@ -299,40 +299,7 @@ textarea {
     overflow: visible; /* allow subtle blur edge breathing room */
 }
 
-/* Blurred dark blue gradient surround behind the image */
-.project .carousel-inner::before {
-    content: "";
-    position: absolute;
-    inset: 0; /* cover padded area */
-    border-radius: inherit;
-    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
-        linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
-    filter: blur(50px);
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Ensure content (image, captions) sit above the blurred layer */
-.project .carousel-inner > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Vary gradient direction per project in a repeating 3-item pattern */
-#projectContainer .project:nth-child(3n+1) .carousel-inner::before {
-    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
-        linear-gradient(135deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
-}
-
-#projectContainer .project:nth-child(3n+2) .carousel-inner::before {
-    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
-        linear-gradient(225deg, #0a3d8f 0%, #0f5dbf 55%, #062a5e 100%);
-}
-
-#projectContainer .project:nth-child(3n+3) .carousel-inner::before {
-    background: linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 75%, #111 75%, #111 100%),
-        linear-gradient(45deg, #0a3d8f 0%, #0f5dbf 55%, #083677 100%);
-}
+/* Removed .carousel-inner::before background blurs that were bleeding into the title area */
 
 .project .carousel-inner .carousel-item {
     background: transparent !important; /* reveal the light-blue background */
