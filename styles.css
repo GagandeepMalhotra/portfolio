@@ -347,8 +347,8 @@ textarea {
 /* Blue glow around project cards (exclude contact card) */
 .project:not(.contact-card) {
     /* tighter blue halo closely hugging the card */
-    filter: drop-shadow(0 0 10px rgba(88, 168, 255, 0.20))
-            drop-shadow(0 0 4px  rgba(88, 168, 255, 0.10));
+    box-shadow: 0 0 10px rgba(88, 168, 255, 0.20),
+                0 0 4px  rgba(88, 168, 255, 0.10);
 }
 
 
@@ -647,6 +647,9 @@ textarea {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    /* Safari fix for border-radius + overflow hidden */
+    -webkit-transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .project-content h3 {
