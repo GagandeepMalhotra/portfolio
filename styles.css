@@ -981,6 +981,31 @@ textarea {
     --tag-icon: url('/images/stripe-small.png');
 }
 
+.tag.prisma {
+    background: #0C344B;
+    --tag-icon: url('/images/prisma-small.svg');
+}
+
+.tag.react {
+    background: #087EA4;
+    --tag-icon: url('/images/react-small.svg');
+}
+
+.tag.fastapi {
+    background: #009688;
+    --tag-icon: url('/images/fastapi-small.svg');
+}
+
+.tag.sklearn {
+    background: #F7931E;
+    --tag-icon: url('/images/sklearn-small.svg');
+}
+
+.tag.chartjs {
+    background: #FF6384;
+    --tag-icon: url('/images/chartjs-small.svg');
+}
+
 .tag-container {
     margin-bottom: 12px;
 }
@@ -1408,6 +1433,20 @@ textarea {
         /* Add your image URL */
         background-size: cover;
         background-position: center;
+        /* iOS Safari: pseudo-elements don't inherit the parent's
+           backface culling, so give the icon its own 3D context and
+           backface-visibility, and hide it the instant the card flips
+           so it can't bleed through the back during the rotation. */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateZ(1px);
+        transform: translateZ(1px);
+        opacity: 1;
+        transition: none;
+    }
+
+    .flip-box:hover .flip-box-front::after {
+        opacity: 0;
     }
 
     .project-link::after {
