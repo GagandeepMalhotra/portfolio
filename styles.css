@@ -1449,6 +1449,20 @@ textarea {
         opacity: 0;
     }
 
+    /* iOS Safari ignores backface-visibility: hidden on an element that also
+       has transform-style: preserve-3d, so the back face's gradient background
+       bleeds through during the flip. The 3D scene only needs preserve-3d on
+       the .flip-box container — flatten the faces themselves so their hidden
+       backface is actually culled. */
+    .flip-box-front,
+    .flip-box-back,
+    .flip-box:hover .flip-box-front,
+    .flip-box:hover .flip-box-back {
+        -webkit-transform-style: flat;
+        -ms-transform-style: flat;
+        transform-style: flat;
+    }
+
     .project-link::after {
         background-image: none;
     }
